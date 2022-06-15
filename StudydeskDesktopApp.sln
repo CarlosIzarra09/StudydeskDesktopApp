@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudydeskDesktopApp", "StudydeskDesktopApp\StudydeskDesktopApp.csproj", "{2861D83A-BED8-48AD-A81F-DFE81D562E9F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2861D83A-BED8-48AD-A81F-DFE81D562E9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2861D83A-BED8-48AD-A81F-DFE81D562E9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2861D83A-BED8-48AD-A81F-DFE81D562E9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2861D83A-BED8-48AD-A81F-DFE81D562E9F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {372FD96C-DDAC-4E6A-B912-F7012F73BD3B}
+	EndGlobalSection
+EndGlobal
