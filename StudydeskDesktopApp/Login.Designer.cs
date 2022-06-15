@@ -35,6 +35,7 @@ namespace StudydeskDesktopApp
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btLogin = new System.Windows.Forms.Button();
+            this.checkBIsTutor = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,22 +59,22 @@ namespace StudydeskDesktopApp
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.GrayText;
             this.label1.Location = new System.Drawing.Point(85, 357);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(166, 24);
+            this.label1.Size = new System.Drawing.Size(167, 22);
             this.label1.TabIndex = 2;
             this.label1.Text = "Correo electrónico";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.GrayText;
             this.label2.Location = new System.Drawing.Point(85, 440);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 24);
+            this.label2.Size = new System.Drawing.Size(107, 22);
             this.label2.TabIndex = 3;
             this.label2.Text = "Contraseña";
             // 
@@ -93,12 +94,24 @@ namespace StudydeskDesktopApp
             this.btLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btLogin.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLogin.ForeColor = System.Drawing.SystemColors.Control;
-            this.btLogin.Location = new System.Drawing.Point(86, 544);
+            this.btLogin.Location = new System.Drawing.Point(86, 576);
             this.btLogin.Name = "btLogin";
             this.btLogin.Size = new System.Drawing.Size(276, 36);
             this.btLogin.TabIndex = 5;
             this.btLogin.Text = "INGRESAR";
             this.btLogin.UseVisualStyleBackColor = false;
+            this.btLogin.Click += new System.EventHandler(this.btLogin_Click);
+            // 
+            // checkBIsTutor
+            // 
+            this.checkBIsTutor.AutoSize = true;
+            this.checkBIsTutor.Font = new System.Drawing.Font("Arial", 14F);
+            this.checkBIsTutor.Location = new System.Drawing.Point(159, 527);
+            this.checkBIsTutor.Name = "checkBIsTutor";
+            this.checkBIsTutor.Size = new System.Drawing.Size(123, 26);
+            this.checkBIsTutor.TabIndex = 6;
+            this.checkBIsTutor.Text = "I am a tutor";
+            this.checkBIsTutor.UseVisualStyleBackColor = true;
             // 
             // Login
             // 
@@ -106,6 +119,7 @@ namespace StudydeskDesktopApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(458, 721);
+            this.Controls.Add(this.checkBIsTutor);
             this.Controls.Add(this.btLogin);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
@@ -131,6 +145,7 @@ namespace StudydeskDesktopApp
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btLogin;
+        private System.Windows.Forms.CheckBox checkBIsTutor;
     }
 }
 
