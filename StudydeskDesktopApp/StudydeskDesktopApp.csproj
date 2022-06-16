@@ -60,6 +60,12 @@
     <Compile Include="DashBoardForm.Designer.cs">
       <DependentUpon>DashBoardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ResponseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResponseForm.Designer.cs">
+      <DependentUpon>ResponseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SdApp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DashBoardForm.resx">
       <DependentUpon>DashBoardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResponseForm.resx">
+      <DependentUpon>ResponseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SdApp.resx">
       <DependentUpon>SdApp.cs</DependentUpon>
@@ -229,7 +238,12 @@
     <None Include="Resources\studydesk_title_logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\books-stack-of-three.png" />
+    <None Include="Assets\login_fail.png" />
     <Content Include="Assets\Logo.png" />
+    <None Include="Assets\monitor.png" />
+    <None Include="Assets\teacher.png" />
+    <None Include="Assets\power-off.png" />
     <Content Include="Assets\texts\studydesk_title_logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

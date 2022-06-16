@@ -106,7 +106,7 @@ namespace StudydeskDesktopApp
             this.button_CoursesForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_CoursesForm.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_CoursesForm.ForeColor = System.Drawing.SystemColors.Window;
-            this.button_CoursesForm.Image = global::StudydeskDesktopApp.Properties.Resources.books_stack_of_three;
+            this.button_CoursesForm.Image = global::StudydeskDesktopApp.Properties.Resources.books_stack_of_three1;
             this.button_CoursesForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_CoursesForm.Location = new System.Drawing.Point(3, 382);
             this.button_CoursesForm.Name = "button_CoursesForm";
@@ -123,7 +123,7 @@ namespace StudydeskDesktopApp
             this.button_TutorsForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_TutorsForm.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_TutorsForm.ForeColor = System.Drawing.SystemColors.Window;
-            this.button_TutorsForm.Image = global::StudydeskDesktopApp.Properties.Resources.teacher;
+            this.button_TutorsForm.Image = global::StudydeskDesktopApp.Properties.Resources.teacher1;
             this.button_TutorsForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_TutorsForm.Location = new System.Drawing.Point(3, 330);
             this.button_TutorsForm.Name = "button_TutorsForm";
@@ -140,7 +140,7 @@ namespace StudydeskDesktopApp
             this.button_Dashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Dashboard.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_Dashboard.ForeColor = System.Drawing.SystemColors.Window;
-            this.button_Dashboard.Image = global::StudydeskDesktopApp.Properties.Resources.monitor1;
+            this.button_Dashboard.Image = global::StudydeskDesktopApp.Properties.Resources.monitor4;
             this.button_Dashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_Dashboard.Location = new System.Drawing.Point(3, 276);
             this.button_Dashboard.Name = "button_Dashboard";
@@ -157,7 +157,7 @@ namespace StudydeskDesktopApp
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.Window;
-            this.button4.Image = global::StudydeskDesktopApp.Properties.Resources.power_off;
+            this.button4.Image = global::StudydeskDesktopApp.Properties.Resources.power_off1;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.Location = new System.Drawing.Point(1121, 3);
             this.button4.Name = "button4";
