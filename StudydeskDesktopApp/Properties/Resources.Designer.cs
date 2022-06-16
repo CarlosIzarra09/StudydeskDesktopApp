@@ -83,6 +83,26 @@ namespace StudydeskDesktopApp.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap avatar2 {
+            get {
+                object obj = ResourceManager.GetObject("avatar2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap avatar3 {
+            get {
+                object obj = ResourceManager.GetObject("avatar3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap books_stack_of_three {
             get {
                 object obj = ResourceManager.GetObject("books-stack-of-three", resourceCulture);
@@ -256,6 +276,16 @@ namespace StudydeskDesktopApp.Properties {
         internal static System.Drawing.Bitmap pngegg__1_ {
             get {
                 object obj = ResourceManager.GetObject("pngegg (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngegg__1_1 {
+            get {
+                object obj = ResourceManager.GetObject("pngegg (1)1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

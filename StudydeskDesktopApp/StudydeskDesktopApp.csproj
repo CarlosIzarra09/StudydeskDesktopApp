@@ -60,6 +60,12 @@
     <Compile Include="DashBoardForm.Designer.cs">
       <DependentUpon>DashBoardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegisterTutors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterTutors.Designer.cs">
+      <DependentUpon>RegisterTutors.cs</DependentUpon>
+    </Compile>
     <Compile Include="ResponseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,11 +102,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\PostTutors\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CoursesForm.resx">
       <DependentUpon>CoursesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DashBoardForm.resx">
       <DependentUpon>DashBoardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisterTutors.resx">
+      <DependentUpon>RegisterTutors.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ResponseForm.resx">
       <DependentUpon>ResponseForm.cs</DependentUpon>
@@ -146,6 +160,11 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\GetTutors\WebServiceGetTutors.wsdl" />
+    <None Include="Web References\PostTutors\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\PostTutors\WebServicePostTutor.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -184,6 +203,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>StudydeskDesktopApp_GetTutors_WebServiceGetTutors</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://localhost:44304/WebServicePostTutor.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\PostTutors\</RelPath>
+      <UpdateFromURL>https://localhost:44304/WebServicePostTutor.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>StudydeskDesktopApp_PostTutors_WebServicePostTutor</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
@@ -238,6 +268,7 @@
     <None Include="Resources\studydesk_title_logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Web References\PostTutors\WebServicePostTutor.disco" />
     <None Include="Assets\books-stack-of-three.png" />
     <None Include="Assets\login_fail.png" />
     <Content Include="Assets\Logo.png" />

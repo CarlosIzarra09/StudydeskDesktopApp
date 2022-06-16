@@ -42,5 +42,15 @@ namespace StudydeskDesktopApp.Properties {
                 return ((string)(this["StudydeskDesktopApp_GetTutors_WebServiceGetTutors"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44304/WebServicePostTutor.asmx")]
+        public string StudydeskDesktopApp_PostTutors_WebServicePostTutor {
+            get {
+                return ((string)(this["StudydeskDesktopApp_PostTutors_WebServicePostTutor"]));
+            }
+        }
     }
 }
