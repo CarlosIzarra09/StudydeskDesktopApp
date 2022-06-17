@@ -43,20 +43,18 @@ namespace StudydeskDesktopApp
             // txbEmail
             // 
             this.txbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbEmail.Location = new System.Drawing.Point(115, 473);
-            this.txbEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txbEmail.Location = new System.Drawing.Point(86, 384);
             this.txbEmail.Name = "txbEmail";
-            this.txbEmail.Size = new System.Drawing.Size(367, 41);
+            this.txbEmail.Size = new System.Drawing.Size(276, 35);
             this.txbEmail.TabIndex = 0;
             // 
             // txbPassword
             // 
             this.txbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbPassword.Location = new System.Drawing.Point(115, 575);
-            this.txbPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txbPassword.Location = new System.Drawing.Point(86, 467);
             this.txbPassword.Name = "txbPassword";
             this.txbPassword.PasswordChar = '*';
-            this.txbPassword.Size = new System.Drawing.Size(367, 41);
+            this.txbPassword.Size = new System.Drawing.Size(276, 35);
             this.txbPassword.TabIndex = 1;
             // 
             // label1
@@ -64,10 +62,9 @@ namespace StudydeskDesktopApp
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label1.Location = new System.Drawing.Point(113, 439);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(85, 357);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(207, 27);
+            this.label1.Size = new System.Drawing.Size(167, 22);
             this.label1.TabIndex = 2;
             this.label1.Text = "Correo electrónico";
             // 
@@ -76,10 +73,9 @@ namespace StudydeskDesktopApp
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label2.Location = new System.Drawing.Point(113, 542);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(85, 440);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(136, 27);
+            this.label2.Size = new System.Drawing.Size(107, 22);
             this.label2.TabIndex = 3;
             this.label2.Text = "Contraseña";
             // 
@@ -89,10 +85,9 @@ namespace StudydeskDesktopApp
             this.btLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btLogin.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLogin.ForeColor = System.Drawing.SystemColors.Control;
-            this.btLogin.Location = new System.Drawing.Point(115, 709);
-            this.btLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.btLogin.Location = new System.Drawing.Point(86, 576);
             this.btLogin.Name = "btLogin";
-            this.btLogin.Size = new System.Drawing.Size(368, 44);
+            this.btLogin.Size = new System.Drawing.Size(276, 36);
             this.btLogin.TabIndex = 5;
             this.btLogin.Text = "INGRESAR";
             this.btLogin.UseVisualStyleBackColor = false;
@@ -102,24 +97,22 @@ namespace StudydeskDesktopApp
             // 
             this.checkBIsTutor.AutoSize = true;
             this.checkBIsTutor.Font = new System.Drawing.Font("Arial", 14F);
-            this.checkBIsTutor.Location = new System.Drawing.Point(212, 649);
-            this.checkBIsTutor.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBIsTutor.Location = new System.Drawing.Point(159, 527);
             this.checkBIsTutor.Name = "checkBIsTutor";
-            this.checkBIsTutor.Size = new System.Drawing.Size(156, 31);
+            this.checkBIsTutor.Size = new System.Drawing.Size(123, 26);
             this.checkBIsTutor.TabIndex = 6;
             this.checkBIsTutor.Text = "I am a tutor";
             this.checkBIsTutor.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.MediumBlue;
+            this.button1.BackColor = System.Drawing.Color.Crimson;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(114, 775);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(86, 630);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(368, 44);
+            this.button1.Size = new System.Drawing.Size(276, 36);
             this.button1.TabIndex = 7;
             this.button1.Text = "REGISTRAR";
             this.button1.UseVisualStyleBackColor = false;
@@ -128,20 +121,19 @@ namespace StudydeskDesktopApp
             // pictureBox1
             // 
             this.pictureBox1.Image = global::StudydeskDesktopApp.Properties.Resources.pngegg__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(119, 60);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(89, 49);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(367, 334);
+            this.pictureBox1.Size = new System.Drawing.Size(275, 271);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(611, 887);
+            this.ClientSize = new System.Drawing.Size(458, 721);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.checkBIsTutor);
             this.Controls.Add(this.btLogin);
@@ -150,7 +142,6 @@ namespace StudydeskDesktopApp
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txbPassword);
             this.Controls.Add(this.txbEmail);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

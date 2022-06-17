@@ -37,5 +37,7 @@ namespace StudydeskDesktopApp
             form1.ShowDialog();
             this.Close();
         }
+
+        
     }
 }

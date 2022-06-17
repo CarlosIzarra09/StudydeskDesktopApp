@@ -12,6 +12,8 @@ namespace StudydeskDesktopApp
 {
     public partial class RegisterTutors : Form
     {
+        OpenFileDialog openImage = new OpenFileDialog();
+
         public RegisterTutors()
         {
             InitializeComponent();
@@ -19,11 +21,10 @@ namespace StudydeskDesktopApp
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog abririImagen = new OpenFileDialog();
-
-            if (abririImagen.ShowDialog() == DialogResult.OK)
+            
+            if (openImage.ShowDialog() == DialogResult.OK)
             {
-                logo.ImageLocation = abririImagen.FileName;
+                logo.ImageLocation = openImage.FileName;
                 logo.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
@@ -38,7 +39,74 @@ namespace StudydeskDesktopApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            StudydeskDesktopApp.PostTutors.WebServicePostTutor post = new StudydeskDesktopApp.PostTutors.WebServicePostTutor();
+
+            if (textBox_name.Text == "" || textBox_latsname.Text == "" || rtbDescription.Text == "" || textBox_email.Text == "" || textBox_contraseña.Text == "")
+            {
+                MessageBox.Show("Completa todos los campos", "Importante", MessageBoxButtons.OK);
+            }
+            else
+            {
+                StudydeskDesktopApp.PostTutors.WebServicePostTutor postTutor = new StudydeskDesktopApp.PostTutors.WebServicePostTutor();
+
+                if (openImage.FileName != string.Empty)
+                {
+                    CloudinaryApi cloudinaryApi = new CloudinaryApi();
+                    string uploadedUrl = cloudinaryApi.uploadImage(openImage);
+
+
+                    string response = postTutor.InsertarTutor(textBox_name.Text,
+                        textBox_latsname.Text,
+                        rtbDescription.Text,
+                        uploadedUrl,
+                        textBox_email.Text,
+                        textBox_contraseña.Text,
+                        double.Parse(textBox_pricePhour.Text),
+                        1);
+
+                    nextPageConfirmation(response);
+                }
+                else {
+
+                    string response = postTutor.InsertarTutor(textBox_name.Text,
+                        textBox_latsname.Text,
+                        "rtbDescription.Text",
+                        "No image",
+                        textBox_email.Text,
+                        textBox_contraseña.Text,
+                        double.Parse(textBox_pricePhour.Text),
+                        1);
+
+                    nextPageConfirmation(response);
+                }
+            }
         }
+
+        private void nextPageConfirmation(string response) {
+            DialogResult result;
+
+            if (response == "An Tutor was inserted without problems")
+            {
+                result = MessageBox.Show("Registro satisfactorio", "Mensaje");
+                if (result == DialogResult.OK)
+                {
+                    SdApp form1 = new SdApp();
+                    this.Hide();
+                    form1.ShowDialog();
+                    this.Close();
+                }
+            }
+            else {
+                MessageBox.Show(response, "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
+
+
+
+        private void RegisterTutors_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

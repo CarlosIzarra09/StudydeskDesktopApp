@@ -37,20 +37,22 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(33, 25);
+            this.label1.Location = new System.Drawing.Point(34, 30);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 27);
+            this.label1.Size = new System.Drawing.Size(235, 22);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Elige que eres:";
+            this.label1.Text = "Quiero registrame como";
             // 
             // button_Tutor
             // 
             this.button_Tutor.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.button_Tutor.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_Tutor.ForeColor = System.Drawing.Color.White;
-            this.button_Tutor.Location = new System.Drawing.Point(38, 81);
+            this.button_Tutor.Location = new System.Drawing.Point(69, 74);
+            this.button_Tutor.Margin = new System.Windows.Forms.Padding(2);
             this.button_Tutor.Name = "button_Tutor";
-            this.button_Tutor.Size = new System.Drawing.Size(204, 62);
+            this.button_Tutor.Size = new System.Drawing.Size(153, 50);
             this.button_Tutor.TabIndex = 1;
             this.button_Tutor.Text = "Tutor";
             this.button_Tutor.UseVisualStyleBackColor = false;
@@ -58,12 +60,13 @@
             // 
             // button_student
             // 
-            this.button_student.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.button_student.BackColor = System.Drawing.Color.DarkTurquoise;
             this.button_student.Font = new System.Drawing.Font("Arial Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_student.ForeColor = System.Drawing.Color.White;
-            this.button_student.Location = new System.Drawing.Point(38, 163);
+            this.button_student.Location = new System.Drawing.Point(69, 140);
+            this.button_student.Margin = new System.Windows.Forms.Padding(2);
             this.button_student.Name = "button_student";
-            this.button_student.Size = new System.Drawing.Size(204, 62);
+            this.button_student.Size = new System.Drawing.Size(153, 50);
             this.button_student.TabIndex = 2;
             this.button_student.Text = "Estudiante";
             this.button_student.UseVisualStyleBackColor = false;
@@ -71,17 +74,18 @@
             // 
             // OptionRegister
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(291, 265);
+            this.ClientSize = new System.Drawing.Size(297, 215);
             this.Controls.Add(this.button_student);
             this.Controls.Add(this.button_Tutor);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "OptionRegister";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "OptionRegister";
-            this.Load += new System.EventHandler(this.OptionRegister_Load);
+            this.Text = "Register options";
             this.ResumeLayout(false);
             this.PerformLayout();
 
