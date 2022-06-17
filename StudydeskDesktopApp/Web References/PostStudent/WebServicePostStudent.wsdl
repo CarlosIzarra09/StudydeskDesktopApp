@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="InsertarEstudiante">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isTutor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="careerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertarEstudianteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertarEstudianteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InsertarEstudianteSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertarEstudiante" />
+  </wsdl:message>
+  <wsdl:message name="InsertarEstudianteSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertarEstudianteResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServicePostStudentSoap">
+    <wsdl:operation name="InsertarEstudiante">
+      <wsdl:input message="tns:InsertarEstudianteSoapIn" />
+      <wsdl:output message="tns:InsertarEstudianteSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServicePostStudentSoap" type="tns:WebServicePostStudentSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertarEstudiante">
+      <soap:operation soapAction="http://tempuri.org/InsertarEstudiante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServicePostStudentSoap12" type="tns:WebServicePostStudentSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertarEstudiante">
+      <soap12:operation soapAction="http://tempuri.org/InsertarEstudiante" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServicePostStudent">
+    <wsdl:port name="WebServicePostStudentSoap" binding="tns:WebServicePostStudentSoap">
+      <soap:address location="https://localhost:44304/WebServicePostStudent.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServicePostStudentSoap12" binding="tns:WebServicePostStudentSoap12">
+      <soap12:address location="https://localhost:44304/WebServicePostStudent.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

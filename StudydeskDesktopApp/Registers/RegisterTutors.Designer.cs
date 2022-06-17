@@ -208,7 +208,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(619, 806);
+            this.ClientSize = new System.Drawing.Size(611, 887);
             this.Controls.Add(this.label_login);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
@@ -227,6 +227,7 @@
             this.Controls.Add(this.name_label);
             this.Controls.Add(this.label1);
             this.Name = "RegisterTutors";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register Tutor";
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);

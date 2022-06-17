@@ -56,10 +56,8 @@ namespace StudydeskDesktopApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            RegisterTutors form1 = new RegisterTutors();
-            this.Hide();
+            OptionRegister form1 = new OptionRegister();
             form1.ShowDialog();
-            this.Close();
         }
     }
 }
