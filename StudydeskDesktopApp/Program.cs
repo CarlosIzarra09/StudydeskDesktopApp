@@ -16,7 +16,7 @@ namespace StudydeskDesktopApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SdApp());
+            Application.Run(new Login());
         }
     }
 }

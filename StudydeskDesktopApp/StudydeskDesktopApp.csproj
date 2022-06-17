@@ -33,9 +33,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CloudinaryDotNet, Version=1.18.0.0, Culture=neutral, PublicKeyToken=c8234dc617ae7841, processorArchitecture=MSIL">
+      <HintPath>..\packages\CloudinaryDotNet.1.18.0\lib\net452\CloudinaryDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.5.1\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,22 +62,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CoursesForm.cs">
+    <Compile Include="CloudinaryApi.cs" />
+    <Compile Include="Home\CoursesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CoursesForm.Designer.cs">
+    <Compile Include="Home\CoursesForm.Designer.cs">
       <DependentUpon>CoursesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DashBoardForm.cs">
+    <Compile Include="Home\DashBoardForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DashBoardForm.Designer.cs">
+    <Compile Include="Home\DashBoardForm.Designer.cs">
       <DependentUpon>DashBoardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SdApp.cs">
+    <Compile Include="Registers\RegisterOption.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SdApp.Designer.cs">
+    <Compile Include="Registers\RegisterOption.Designer.cs">
+      <DependentUpon>RegisterOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registers\RegisterStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registers\RegisterStudent.Designer.cs">
+      <DependentUpon>RegisterStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registers\RegisterTutors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registers\RegisterTutors.Designer.cs">
+      <DependentUpon>RegisterTutors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\SdApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\SdApp.Designer.cs">
       <DependentUpon>SdApp.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
@@ -74,10 +107,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TutorsForm.cs">
+    <Compile Include="Home\TutorsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TutorsForm.Designer.cs">
+    <Compile Include="Home\TutorsForm.Designer.cs">
       <DependentUpon>TutorsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Web References\Authenticate\Reference.cs">
@@ -90,13 +123,32 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CoursesForm.resx">
+    <Compile Include="Web References\PostStudent\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\PostTutors\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Home\CoursesForm.resx">
       <DependentUpon>CoursesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DashBoardForm.resx">
+    <EmbeddedResource Include="Home\DashBoardForm.resx">
       <DependentUpon>DashBoardForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SdApp.resx">
+    <EmbeddedResource Include="Registers\RegisterOption.resx">
+      <DependentUpon>RegisterOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registers\RegisterStudent.resx">
+      <DependentUpon>RegisterStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registers\RegisterTutors.resx">
+      <DependentUpon>RegisterTutors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\SdApp.resx">
       <DependentUpon>SdApp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
@@ -112,9 +164,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="TutorsForm.resx">
+    <EmbeddedResource Include="Home\TutorsForm.resx">
       <DependentUpon>TutorsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -137,6 +190,16 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\GetTutors\WebServiceGetTutors.wsdl" />
+    <None Include="Web References\PostStudent\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\PostStudent\WebServicePostStudent.wsdl" />
+    <None Include="Web References\PostTutors\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\PostTutors\WebServicePostTutor.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -175,6 +238,28 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>StudydeskDesktopApp_GetTutors_WebServiceGetTutors</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://localhost:44304/WebServicePostStudent.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\PostStudent\</RelPath>
+      <UpdateFromURL>https://localhost:44304/WebServicePostStudent.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>StudydeskDesktopApp_PostStudent_WebServicePostStudent</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://localhost:44304/WebServicePostTutor.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\PostTutors\</RelPath>
+      <UpdateFromURL>https://localhost:44304/WebServicePostTutor.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>StudydeskDesktopApp_PostTutors_WebServicePostTutor</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
@@ -229,8 +314,16 @@
     <None Include="Resources\studydesk_title_logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Web References\PostTutors\WebServicePostTutor.disco" />
+    <None Include="Web References\PostStudent\WebServicePostStudent.disco" />
+    <None Include="Assets\books-stack-of-three.png" />
+    <None Include="Assets\login_fail.png" />
     <Content Include="Assets\Logo.png" />
+    <None Include="Assets\monitor.png" />
+    <None Include="Assets\teacher.png" />
+    <None Include="Assets\power-off.png" />
     <Content Include="Assets\texts\studydesk_title_logo.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

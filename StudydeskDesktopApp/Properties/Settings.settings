@@ -8,5 +8,11 @@
     <Setting Name="StudydeskDesktopApp_GetTutors_WebServiceGetTutors" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">https://localhost:44304/WebServiceGetTutors.asmx</Value>
     </Setting>
+    <Setting Name="StudydeskDesktopApp_PostStudent_WebServicePostStudent" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://localhost:44304/WebServicePostStudent.asmx</Value>
+    </Setting>
+    <Setting Name="StudydeskDesktopApp_PostTutors_WebServicePostTutor" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://localhost:44304/WebServicePostTutor.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -53,5 +53,11 @@ namespace StudydeskDesktopApp
 
             
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OptionRegister form1 = new OptionRegister();
+            form1.ShowDialog();
+        }
     }
 }
