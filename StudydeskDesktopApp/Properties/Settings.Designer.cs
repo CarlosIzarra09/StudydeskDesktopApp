@@ -26,16 +26,6 @@ namespace StudydeskDesktopApp.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44304/WebServiceAuthentication.asmx")]
-        public string StudydeskDesktopApp_Authenticate_WebServiceAuthentication {
-            get {
-                return ((string)(this["StudydeskDesktopApp_Authenticate_WebServiceAuthentication"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44304/WebServiceGetTutors.asmx")]
         public string StudydeskDesktopApp_GetTutors_WebServiceGetTutors {
             get {
@@ -46,10 +36,20 @@ namespace StudydeskDesktopApp.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44304/WebServicePostStudent.asmx")]
-        public string StudydeskDesktopApp_PostStudent_WebServicePostStudent {
+        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44304/WebServiceAuthentication.asmx")]
+        public string StudydeskDesktopApp_Authentication_WebServiceAuthentication {
             get {
-                return ((string)(this["StudydeskDesktopApp_PostStudent_WebServicePostStudent"]));
+                return ((string)(this["StudydeskDesktopApp_Authentication_WebServiceAuthentication"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44304/WebServiceGetTutorById.asmx")]
+        public string StudydeskDesktopApp_GetTutorById_WebServiceGetTutorById {
+            get {
+                return ((string)(this["StudydeskDesktopApp_GetTutorById_WebServiceGetTutorById"]));
             }
         }
         
@@ -57,9 +57,19 @@ namespace StudydeskDesktopApp.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44304/WebServicePostTutor.asmx")]
-        public string StudydeskDesktopApp_PostTutors_WebServicePostTutor {
+        public string StudydeskDesktopApp_PostTutor_WebServicePostTutor {
             get {
-                return ((string)(this["StudydeskDesktopApp_PostTutors_WebServicePostTutor"]));
+                return ((string)(this["StudydeskDesktopApp_PostTutor_WebServicePostTutor"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44304/WebServicePostStudent.asmx")]
+        public string StudydeskDesktopApp_PostStudent_WebServicePostStudent {
+            get {
+                return ((string)(this["StudydeskDesktopApp_PostStudent_WebServicePostStudent"]));
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace StudydeskDesktopApp
 {
-    partial class CoursesForm
+    partial class DashboardForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,23 +34,25 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Modern No. 20", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(286, 196);
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(203, 157);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(196, 34);
+            this.label1.Size = new System.Drawing.Size(195, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Cursos From";
+            this.label1.Text = "DashBoard Form";
             // 
-            // CoursesForm
+            // DashboardForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "CoursesForm";
-            this.Text = "CoursesForm";
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "DashboardForm";
+            this.Text = "DashBoardForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 

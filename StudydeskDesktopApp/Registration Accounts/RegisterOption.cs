@@ -26,7 +26,8 @@ namespace StudydeskDesktopApp
         {
             RegisterTutors form1 = new RegisterTutors();
             this.Hide();
-            form1.ShowDialog();
+            form1.Show();
+            LoginForm.Instance.Hide();
             this.Close();
         }
 
@@ -34,10 +35,14 @@ namespace StudydeskDesktopApp
         {
             RegisterStudent form1 = new RegisterStudent();
             this.Hide();
-            form1.ShowDialog();
+            form1.Show();
+            LoginForm.Instance.Hide();
             this.Close();
         }
 
-        
+        private void OptionRegister_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

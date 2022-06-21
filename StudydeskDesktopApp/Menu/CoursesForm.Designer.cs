@@ -1,6 +1,6 @@
 ﻿namespace StudydeskDesktopApp
 {
-    partial class DashBoardForm
+    partial class CoursesForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,23 +34,26 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(271, 193);
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(214, 159);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 31);
+            this.label1.Size = new System.Drawing.Size(163, 29);
             this.label1.TabIndex = 0;
-            this.label1.Text = "DashBoard Form";
+            this.label1.Text = "Cursos From";
             // 
-            // DashBoardForm
+            // CoursesForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "DashBoardForm";
-            this.Text = "DashBoardForm";
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "CoursesForm";
+            this.Text = "CoursesForm";
+            this.Load += new System.EventHandler(this.CoursesForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace StudydeskDesktopApp
 {
-    public partial class DashBoardForm : Form
+    public partial class DashboardForm : Form
     {
-        public DashBoardForm()
+        public static DashboardForm Instance = null;
+        public DashboardForm()
         {
             InitializeComponent();
+            Instance = this;
         }
     }
 }

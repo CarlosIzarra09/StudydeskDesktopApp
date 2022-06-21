@@ -21,7 +21,7 @@ namespace StudydeskDesktopApp
 
         private void label_login_Click(object sender, EventArgs e)
         {
-            Login form1 = new Login();
+            LoginForm form1 = new LoginForm();
             this.Hide();
             form1.ShowDialog();
             this.Close();
@@ -57,8 +57,8 @@ namespace StudydeskDesktopApp
                 }
                 else {
                     string response = postStudent.InsertarEstudiante(textBox_name.Text, 
-                        textBox_latsname.Text, 
-                        "No image", 
+                        textBox_latsname.Text,
+                        "https://res.cloudinary.com/dwhagi5eg/image/upload/v1636674995/gjipugw9leeg9tae72e4.png", 
                         textBox_email.Text, 
                         textBox_contraseña.Text, 
                         0, 
@@ -77,13 +77,16 @@ namespace StudydeskDesktopApp
 
             if (response == "A Student was inserted without problems")
             {
-                result = MessageBox.Show("Registro satisfactorio", "Mensaje");
+                result = MessageBox.Show("Registro satisfactorio, ahora inicie sesión", "Mensaje");
                 if (result == DialogResult.OK)
                 {
-                    SdApp form1 = new SdApp();
+                    this.Hide();
+                    LoginForm.Instance.Show();
+                    this.Close();
+                    /*SdApp form1 = new SdApp();
                     this.Hide();
                     form1.ShowDialog();
-                    this.Close();
+                    this.Close();*/
                 }
             }
             else
@@ -104,7 +107,18 @@ namespace StudydeskDesktopApp
             {
                 logo.ImageLocation = openImage.FileName;
                 logo.SizeMode = PictureBoxSizeMode.StretchImage;
+                System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+
+                gp.AddEllipse(0, 0, logo.Width - 3, logo.Height - 3);
+                Region rg = new Region(gp);
+                logo.Region = rg;
             }
+        }
+
+        private void RegisterStudent_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            LoginForm.Instance.Show();
         }
     }
 }

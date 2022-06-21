@@ -31,7 +31,7 @@ namespace StudydeskDesktopApp
 
         private void label_login_Click(object sender, EventArgs e)
         {
-            Login form1 = new Login();
+            LoginForm form1 = new LoginForm();
             this.Hide();
             form1.ShowDialog();
             this.Close();
@@ -46,7 +46,7 @@ namespace StudydeskDesktopApp
             }
             else
             {
-                StudydeskDesktopApp.PostTutors.WebServicePostTutor postTutor = new StudydeskDesktopApp.PostTutors.WebServicePostTutor();
+                StudydeskDesktopApp.PostTutor.WebServicePostTutor postTutor = new StudydeskDesktopApp.PostTutor.WebServicePostTutor();
 
                 if (openImage.FileName != string.Empty)
                 {
@@ -60,7 +60,7 @@ namespace StudydeskDesktopApp
                         uploadedUrl,
                         textBox_email.Text,
                         textBox_contraseña.Text,
-                        double.Parse(textBox_pricePhour.Text),
+                        Convert.ToDouble(textBox_pricePhour.Text),
                         1);
 
                     nextPageConfirmation(response);
@@ -69,11 +69,11 @@ namespace StudydeskDesktopApp
 
                     string response = postTutor.InsertarTutor(textBox_name.Text,
                         textBox_latsname.Text,
-                        "rtbDescription.Text",
-                        "No image",
+                        rtbDescription.Text,
+                        "https://res.cloudinary.com/dwhagi5eg/image/upload/v1636674995/gjipugw9leeg9tae72e4.png",
                         textBox_email.Text,
                         textBox_contraseña.Text,
-                        double.Parse(textBox_pricePhour.Text),
+                         Convert.ToDouble(textBox_pricePhour.Text),
                         1);
 
                     nextPageConfirmation(response);
@@ -86,12 +86,15 @@ namespace StudydeskDesktopApp
 
             if (response == "An Tutor was inserted without problems")
             {
-                result = MessageBox.Show("Registro satisfactorio", "Mensaje");
+                result = MessageBox.Show("Registro satisfactorio, ahora inicie sesión", "Mensaje");
                 if (result == DialogResult.OK)
                 {
-                    SdApp form1 = new SdApp();
+                    /*SdApp form1 = new SdApp();
                     this.Hide();
                     form1.ShowDialog();
+                    this.Close();*/
+                    this.Hide();
+                    LoginForm.Instance.Show();
                     this.Close();
                 }
             }
@@ -107,6 +110,10 @@ namespace StudydeskDesktopApp
 
         }
 
-        
+        private void RegisterTutors_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            LoginForm.Instance.Show();
+        }
     }
 }

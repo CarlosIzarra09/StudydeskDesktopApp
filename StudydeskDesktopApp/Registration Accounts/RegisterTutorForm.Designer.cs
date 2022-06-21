@@ -144,9 +144,10 @@
             // textBox_contraseña
             // 
             this.textBox_contraseña.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_contraseña.Location = new System.Drawing.Point(224, 576);
+            this.textBox_contraseña.Location = new System.Drawing.Point(224, 538);
             this.textBox_contraseña.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_contraseña.Name = "textBox_contraseña";
+            this.textBox_contraseña.PasswordChar = '*';
             this.textBox_contraseña.Size = new System.Drawing.Size(177, 29);
             this.textBox_contraseña.TabIndex = 10;
             // 
@@ -164,10 +165,9 @@
             // textBox_pricePhour
             // 
             this.textBox_pricePhour.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_pricePhour.Location = new System.Drawing.Point(224, 536);
+            this.textBox_pricePhour.Location = new System.Drawing.Point(224, 578);
             this.textBox_pricePhour.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_pricePhour.Name = "textBox_pricePhour";
-            this.textBox_pricePhour.PasswordChar = '*';
             this.textBox_pricePhour.Size = new System.Drawing.Size(177, 29);
             this.textBox_pricePhour.TabIndex = 12;
             // 
@@ -243,6 +243,7 @@
             this.Name = "RegisterTutors";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register Tutor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RegisterTutors_FormClosing);
             this.Load += new System.EventHandler(this.RegisterTutors_Load);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);

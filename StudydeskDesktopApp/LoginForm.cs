@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace StudydeskDesktopApp
 {
-    public partial class Login : Form
+    public partial class LoginForm : Form
     {
-        public Login()
+        public static LoginForm Instance = null;
+        public LoginForm()
         {
             InitializeComponent();
+            Instance = this;
         }
 
         
@@ -26,26 +28,30 @@ namespace StudydeskDesktopApp
 
         private void btLogin_Click(object sender, EventArgs e)
         {
-            StudydeskDesktopApp.Authenticate.WebServiceAuthentication authenticateUser = new StudydeskDesktopApp.Authenticate.WebServiceAuthentication();
-            StudydeskDesktopApp.Authenticate.ResponseService response;
+            StudydeskDesktopApp.Authentication.WebServiceAuthentication authenticateUser = new StudydeskDesktopApp.Authentication.WebServiceAuthentication();
+            StudydeskDesktopApp.Authentication.AuthenticationResponse response;
             if (checkBIsTutor.Checked)
                 response = authenticateUser.AutenticarUsuarioTutor(txbEmail.Text, txbPassword.Text);
             else
                 response = authenticateUser.AutenticarUsuarioEstudiante(txbEmail.Text, txbPassword.Text);
             
             DialogResult result;
-            if (response.Status == "error")
+            if (response.Success == false)
             {
-                result = MessageBox.Show(response.Message, response.Status, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(response.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else {
-                result = MessageBox.Show(response.Message, response.Status, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                result = MessageBox.Show(response.Message, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (result == DialogResult.OK) {
                     
-                    SdApp form1 = new SdApp();
+                    SdApp form1 = new SdApp(
+                        response.Resource.Id,
+                        checkBIsTutor.Checked
+                        );
                     this.Hide();
-                    form1.ShowDialog();
-                    this.Close();
+                    form1.Show();
+                    this.txbPassword.Text = string.Empty;
+                    //this.Close();
                     //Application.Exit();
                 }
 
@@ -57,7 +63,7 @@ namespace StudydeskDesktopApp
         private void button1_Click(object sender, EventArgs e)
         {
             OptionRegister form1 = new OptionRegister();
-            form1.ShowDialog();
+            form1.Show();
         }
     }
 }

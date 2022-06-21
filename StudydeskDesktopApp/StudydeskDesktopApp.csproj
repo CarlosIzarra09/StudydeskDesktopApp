@@ -63,57 +63,68 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CloudinaryApi.cs" />
-    <Compile Include="Home\CoursesForm.cs">
+    <Compile Include="Menu\CoursesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home\CoursesForm.Designer.cs">
+    <Compile Include="Menu\CoursesForm.Designer.cs">
       <DependentUpon>CoursesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\DashBoardForm.cs">
+    <Compile Include="Menu\DashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home\DashBoardForm.Designer.cs">
-      <DependentUpon>DashBoardForm.cs</DependentUpon>
+    <Compile Include="Menu\DashboardForm.Designer.cs">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registers\RegisterOption.cs">
+    <Compile Include="Menu\ProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registers\RegisterOption.Designer.cs">
+    <Compile Include="Menu\ProfileForm.Designer.cs">
+      <DependentUpon>ProfileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registration Accounts\RegisterOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registration Accounts\RegisterOption.Designer.cs">
       <DependentUpon>RegisterOption.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registers\RegisterStudent.cs">
+    <Compile Include="Registration Accounts\RegisterStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registers\RegisterStudent.Designer.cs">
-      <DependentUpon>RegisterStudent.cs</DependentUpon>
+    <Compile Include="Registration Accounts\RegisterStudentForm.Designer.cs">
+      <DependentUpon>RegisterStudentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registers\RegisterTutors.cs">
+    <Compile Include="Registration Accounts\RegisterTutorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registers\RegisterTutors.Designer.cs">
-      <DependentUpon>RegisterTutors.cs</DependentUpon>
+    <Compile Include="Registration Accounts\RegisterTutorForm.Designer.cs">
+      <DependentUpon>RegisterTutorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\SdApp.cs">
+    <Compile Include="SdApp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home\SdApp.Designer.cs">
+    <Compile Include="SdApp.Designer.cs">
       <DependentUpon>SdApp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Home\TutorsForm.cs">
+    <Compile Include="Menu\TutorsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home\TutorsForm.Designer.cs">
+    <Compile Include="Menu\TutorsForm.Designer.cs">
       <DependentUpon>TutorsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Web References\Authenticate\Reference.cs">
+    <Compile Include="Web References\Authentication\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\GetTutorById\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -128,31 +139,34 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
-    <Compile Include="Web References\PostTutors\Reference.cs">
+    <Compile Include="Web References\PostTutor\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Home\CoursesForm.resx">
+    <EmbeddedResource Include="Menu\CoursesForm.resx">
       <DependentUpon>CoursesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home\DashBoardForm.resx">
-      <DependentUpon>DashBoardForm.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\DashboardForm.resx">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registers\RegisterOption.resx">
+    <EmbeddedResource Include="Menu\ProfileForm.resx">
+      <DependentUpon>ProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registration Accounts\RegisterOption.resx">
       <DependentUpon>RegisterOption.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registers\RegisterStudent.resx">
-      <DependentUpon>RegisterStudent.cs</DependentUpon>
+    <EmbeddedResource Include="Registration Accounts\RegisterStudentForm.resx">
+      <DependentUpon>RegisterStudentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registers\RegisterTutors.resx">
-      <DependentUpon>RegisterTutors.cs</DependentUpon>
+    <EmbeddedResource Include="Registration Accounts\RegisterTutorForm.resx">
+      <DependentUpon>RegisterTutorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home\SdApp.resx">
+    <EmbeddedResource Include="SdApp.resx">
       <DependentUpon>SdApp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -164,7 +178,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Home\TutorsForm.resx">
+    <EmbeddedResource Include="Menu\TutorsForm.resx">
       <DependentUpon>TutorsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -177,14 +191,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Web References\Authenticate\Reference.map">
+    <None Include="Web References\Authentication\AuthenticationResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Authentication\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Web References\Authenticate\ResponseService.datasource">
+    <None Include="Web References\Authentication\WebServiceAuthentication.wsdl" />
+    <None Include="Web References\GetTutorById\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\GetTutorById\TutorResponse.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\Authenticate\WebServiceAuthentication.wsdl" />
+    <None Include="Web References\GetTutorById\WebServiceGetTutorById.wsdl" />
     <None Include="Web References\GetTutors\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -195,11 +217,11 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\PostStudent\WebServicePostStudent.wsdl" />
-    <None Include="Web References\PostTutors\Reference.map">
+    <None Include="Web References\PostTutor\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Web References\PostTutors\WebServicePostTutor.wsdl" />
+    <None Include="Web References\PostTutor\WebServicePostTutor.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -219,14 +241,25 @@
   <ItemGroup>
     <WebReferenceUrl Include="https://localhost:44304/WebServiceAuthentication.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\Authenticate\</RelPath>
+      <RelPath>Web References\Authentication\</RelPath>
       <UpdateFromURL>https://localhost:44304/WebServiceAuthentication.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>StudydeskDesktopApp_Authenticate_WebServiceAuthentication</CachedSettingsPropName>
+      <CachedSettingsPropName>StudydeskDesktopApp_Authentication_WebServiceAuthentication</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://localhost:44304/WebServiceGetTutorById.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\GetTutorById\</RelPath>
+      <UpdateFromURL>https://localhost:44304/WebServiceGetTutorById.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>StudydeskDesktopApp_GetTutorById_WebServiceGetTutorById</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="https://localhost:44304/WebServiceGetTutors.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
@@ -252,18 +285,15 @@
     </WebReferenceUrl>
     <WebReferenceUrl Include="https://localhost:44304/WebServicePostTutor.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\PostTutors\</RelPath>
+      <RelPath>Web References\PostTutor\</RelPath>
       <UpdateFromURL>https://localhost:44304/WebServicePostTutor.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>StudydeskDesktopApp_PostTutors_WebServicePostTutor</CachedSettingsPropName>
+      <CachedSettingsPropName>StudydeskDesktopApp_PostTutor_WebServicePostTutor</CachedSettingsPropName>
     </WebReferenceUrl>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Web References\Authenticate\WebServiceAuthentication.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\monitor.png" />
@@ -314,8 +344,12 @@
     <None Include="Resources\studydesk_title_logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Web References\PostTutors\WebServicePostTutor.disco" />
     <None Include="Web References\PostStudent\WebServicePostStudent.disco" />
+    <None Include="Web References\PostTutor\WebServicePostTutor.disco" />
+    <None Include="Resources\default-placeholder.png" />
+    <None Include="Web References\GetTutorById\WebServiceGetTutorById.disco" />
+    <None Include="Resources\jake.jpeg" />
+    <None Include="Web References\Authentication\WebServiceAuthentication.disco" />
     <None Include="Assets\books-stack-of-three.png" />
     <None Include="Assets\login_fail.png" />
     <Content Include="Assets\Logo.png" />

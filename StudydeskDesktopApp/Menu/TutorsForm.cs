@@ -12,9 +12,11 @@ namespace StudydeskDesktopApp
 {
     public partial class TutorsForm : Form
     {
+        public static TutorsForm Instance = null;
         public TutorsForm()
         {
             InitializeComponent();
+            Instance = this;
         }
 
         private void TutorsForm_Load(object sender, EventArgs e)

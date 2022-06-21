@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace StudydeskDesktopApp.PostTutors {
+namespace StudydeskDesktopApp.PostTutor {
     using System;
     using System.Web.Services;
     using System.Diagnostics;
@@ -35,7 +35,7 @@ namespace StudydeskDesktopApp.PostTutors {
         
         /// <remarks/>
         public WebServicePostTutor() {
-            this.Url = global::StudydeskDesktopApp.Properties.Settings.Default.StudydeskDesktopApp_PostTutors_WebServicePostTutor;
+            this.Url = global::StudydeskDesktopApp.Properties.Settings.Default.StudydeskDesktopApp_PostTutor_WebServicePostTutor;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;

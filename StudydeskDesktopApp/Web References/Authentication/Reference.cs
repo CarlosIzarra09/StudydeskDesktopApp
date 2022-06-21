@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace StudydeskDesktopApp.Authenticate {
+namespace StudydeskDesktopApp.Authentication {
     using System;
     using System.Web.Services;
     using System.Diagnostics;
@@ -27,6 +27,7 @@ namespace StudydeskDesktopApp.Authenticate {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="WebServiceAuthenticationSoap", Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseResponseOfAuthentication))]
     public partial class WebServiceAuthentication : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback AutenticarUsuarioTutorOperationCompleted;
@@ -37,7 +38,7 @@ namespace StudydeskDesktopApp.Authenticate {
         
         /// <remarks/>
         public WebServiceAuthentication() {
-            this.Url = global::StudydeskDesktopApp.Properties.Settings.Default.StudydeskDesktopApp_Authenticate_WebServiceAuthentication;
+            this.Url = global::StudydeskDesktopApp.Properties.Settings.Default.StudydeskDesktopApp_Authentication_WebServiceAuthentication;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -79,11 +80,11 @@ namespace StudydeskDesktopApp.Authenticate {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AutenticarUsuarioTutor", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ResponseService AutenticarUsuarioTutor(string email, string password) {
+        public AuthenticationResponse AutenticarUsuarioTutor(string email, string password) {
             object[] results = this.Invoke("AutenticarUsuarioTutor", new object[] {
                         email,
                         password});
-            return ((ResponseService)(results[0]));
+            return ((AuthenticationResponse)(results[0]));
         }
         
         /// <remarks/>
@@ -110,11 +111,11 @@ namespace StudydeskDesktopApp.Authenticate {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AutenticarUsuarioEstudiante", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ResponseService AutenticarUsuarioEstudiante(string email, string password) {
+        public AuthenticationResponse AutenticarUsuarioEstudiante(string email, string password) {
             object[] results = this.Invoke("AutenticarUsuarioEstudiante", new object[] {
                         email,
                         password});
-            return ((ResponseService)(results[0]));
+            return ((AuthenticationResponse)(results[0]));
         }
         
         /// <remarks/>
@@ -164,19 +165,31 @@ namespace StudydeskDesktopApp.Authenticate {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ResponseService {
+    public partial class AuthenticationResponse : BaseResponseOfAuthentication {
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AuthenticationResponse))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4161.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public abstract partial class BaseResponseOfAuthentication {
         
-        private string statusField;
+        private bool successField;
         
         private string messageField;
         
+        private Authentication resourceField;
+        
         /// <remarks/>
-        public string Status {
+        public bool Success {
             get {
-                return this.statusField;
+                return this.successField;
             }
             set {
-                this.statusField = value;
+                this.successField = value;
             }
         }
         
@@ -187,6 +200,37 @@ namespace StudydeskDesktopApp.Authenticate {
             }
             set {
                 this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Authentication Resource {
+            get {
+                return this.resourceField;
+            }
+            set {
+                this.resourceField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4161.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Authentication {
+        
+        private int idField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
             }
         }
     }
@@ -209,10 +253,10 @@ namespace StudydeskDesktopApp.Authenticate {
         }
         
         /// <remarks/>
-        public ResponseService Result {
+        public AuthenticationResponse Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((ResponseService)(this.results[0]));
+                return ((AuthenticationResponse)(this.results[0]));
             }
         }
     }
@@ -235,10 +279,10 @@ namespace StudydeskDesktopApp.Authenticate {
         }
         
         /// <remarks/>
-        public ResponseService Result {
+        public AuthenticationResponse Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((ResponseService)(this.results[0]));
+                return ((AuthenticationResponse)(this.results[0]));
             }
         }
     }

@@ -84,8 +84,9 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "OptionRegister";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register options";
+            this.Load += new System.EventHandler(this.OptionRegister_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 
