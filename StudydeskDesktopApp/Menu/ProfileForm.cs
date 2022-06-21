@@ -12,6 +12,9 @@ namespace StudydeskDesktopApp.Menu
 {
     public partial class ProfileForm : Form
     {
+        OpenFileDialog openImage = new OpenFileDialog();
+
+
         public static ProfileForm Instance = null;
         public int userId = 0;
         public bool userIsTutor = false;
@@ -47,13 +50,27 @@ namespace StudydeskDesktopApp.Menu
                 txtDescription.Text = response.Resource.Description;
                 logo.LoadAsync(response.Resource.Logo);
             }
-            else { 
+            else {
                 ////////////////////student case
+                StudydeskDesktopApp.GetStudentById.WebServiceGetStudentById studentById = new StudydeskDesktopApp.GetStudentById.WebServiceGetStudentById();
+                StudydeskDesktopApp.GetStudentById.StudentResponse response;
+
+                response = studentById.RetornarUsuarioEstudiantePorId(this.userId);
+
+                txtName.Text = response.Resource.Name;
+                txtLastname.Text = response.Resource.LastName;
+                txtDescription.Text = "Soy un estudiante";
+                logo.LoadAsync(response.Resource.Logo);
             }
 
             
 
 
+        }
+
+        private void logo_Click(object sender, EventArgs e)
+        {
+           // StudydeskDesktopApp.Put.WebServicePostTutor postTutor = new StudydeskDesktopApp.PostTutor.WebServicePostTutor();
         }
     }
 }

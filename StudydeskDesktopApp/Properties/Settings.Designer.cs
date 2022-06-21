@@ -12,7 +12,7 @@ namespace StudydeskDesktopApp.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.1.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -70,6 +70,26 @@ namespace StudydeskDesktopApp.Properties {
         public string StudydeskDesktopApp_PostStudent_WebServicePostStudent {
             get {
                 return ((string)(this["StudydeskDesktopApp_PostStudent_WebServicePostStudent"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44304/WebServiceUpdateTutor.asmx")]
+        public string StudydeskDesktopApp_PutTutors_WebServiceUpdateTutor {
+            get {
+                return ((string)(this["StudydeskDesktopApp_PutTutors_WebServiceUpdateTutor"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44304/WebServiceGetStudentById.asmx")]
+        public string StudydeskDesktopApp_GetStudentById_WebServiceGetStudentById {
+            get {
+                return ((string)(this["StudydeskDesktopApp_GetStudentById_WebServiceGetStudentById"]));
             }
         }
     }

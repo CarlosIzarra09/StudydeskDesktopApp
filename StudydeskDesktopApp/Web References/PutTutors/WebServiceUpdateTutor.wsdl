@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ActualizarTutor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="priceperhour" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="courseId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarTutorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ActualizarTutorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ActualizarTutorSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarTutor" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarTutorSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarTutorResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceUpdateTutorSoap">
+    <wsdl:operation name="ActualizarTutor">
+      <wsdl:input message="tns:ActualizarTutorSoapIn" />
+      <wsdl:output message="tns:ActualizarTutorSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceUpdateTutorSoap" type="tns:WebServiceUpdateTutorSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ActualizarTutor">
+      <soap:operation soapAction="http://tempuri.org/ActualizarTutor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceUpdateTutorSoap12" type="tns:WebServiceUpdateTutorSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ActualizarTutor">
+      <soap12:operation soapAction="http://tempuri.org/ActualizarTutor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceUpdateTutor">
+    <wsdl:port name="WebServiceUpdateTutorSoap" binding="tns:WebServiceUpdateTutorSoap">
+      <soap:address location="https://localhost:44304/WebServiceUpdateTutor.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceUpdateTutorSoap12" binding="tns:WebServiceUpdateTutorSoap12">
+      <soap12:address location="https://localhost:44304/WebServiceUpdateTutor.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

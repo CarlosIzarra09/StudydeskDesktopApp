@@ -124,6 +124,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\GetStudentById\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\GetTutorById\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -140,6 +145,11 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\PostTutor\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\PutTutors\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -199,6 +209,14 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\Authentication\WebServiceAuthentication.wsdl" />
+    <None Include="Web References\GetStudentById\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\GetStudentById\StudentResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\GetStudentById\WebServiceGetStudentById.wsdl" />
     <None Include="Web References\GetTutorById\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -222,6 +240,11 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\PostTutor\WebServicePostTutor.wsdl" />
+    <None Include="Web References\PutTutors\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\PutTutors\WebServiceUpdateTutor.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -249,6 +272,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>StudydeskDesktopApp_Authentication_WebServiceAuthentication</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://localhost:44304/WebServiceGetStudentById.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\GetStudentById\</RelPath>
+      <UpdateFromURL>https://localhost:44304/WebServiceGetStudentById.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>StudydeskDesktopApp_GetStudentById_WebServiceGetStudentById</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="https://localhost:44304/WebServiceGetTutorById.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
@@ -293,6 +327,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>StudydeskDesktopApp_PostTutor_WebServicePostTutor</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://localhost:44304/WebServiceUpdateTutor.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\PutTutors\</RelPath>
+      <UpdateFromURL>https://localhost:44304/WebServiceUpdateTutor.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>StudydeskDesktopApp_PutTutors_WebServiceUpdateTutor</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
@@ -344,6 +389,8 @@
     <None Include="Resources\studydesk_title_logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Web References\GetStudentById\WebServiceGetStudentById.disco" />
+    <None Include="Web References\PutTutors\WebServiceUpdateTutor.disco" />
     <None Include="Web References\PostStudent\WebServicePostStudent.disco" />
     <None Include="Web References\PostTutor\WebServicePostTutor.disco" />
     <None Include="Resources\default-placeholder.png" />
