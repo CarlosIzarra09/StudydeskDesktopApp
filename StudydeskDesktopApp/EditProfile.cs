@@ -8,32 +8,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StudydeskDesktopApp.Menu
+namespace StudydeskDesktopApp
 {
-    public partial class ProfileForm : Form
+    public partial class EditProfile : Form
     {
         private OpenFileDialog openImage = new OpenFileDialog();
         private StudydeskDesktopApp.GetTutorById.WebServiceGetTutorById tutorById;
         private StudydeskDesktopApp.GetStudentById.WebServiceGetStudentById studentById;
-
-
-        public static ProfileForm Instance = null;
+        public static EditProfile Instance = null;
         public int userId = 0;
         public bool userIsTutor = false;
-        public ProfileForm(int id,bool isTutor)
+        public EditProfile(int id, bool isTutor)
         {
             InitializeComponent();
             InitializeWebServices();
             Instance = this;
             this.userId = id;
             this.userIsTutor = isTutor;
-            
         }
 
-        public void InitializeWebServices() {
+        public void InitializeWebServices()
+        {
 
             this.tutorById = new StudydeskDesktopApp.GetTutorById.WebServiceGetTutorById();
-            
+
             tutorById.AuthHeaderValue = new StudydeskDesktopApp.GetTutorById.AuthHeader
             {
                 Username = "studydesk",
@@ -48,8 +46,7 @@ namespace StudydeskDesktopApp.Menu
             };
         }
 
-
-        private void ProfileForm_Load(object sender, EventArgs e)
+        private void EditProfile_Load(object sender, EventArgs e)
         {
             Rectangle r = new Rectangle(0, 0, logo.Width, logo.Height);
             System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
@@ -62,41 +59,32 @@ namespace StudydeskDesktopApp.Menu
 
             if (this.userIsTutor)
             {
-                
+
                 StudydeskDesktopApp.GetTutorById.TutorResponse response;
 
                 response = tutorById.RetornarUsuarioTutorPorId(this.userId);
 
-                txt_mail.Text = response.Resource.Email;
-                txtName.Text = response.Resource.Name;
-                txtLastname.Text = response.Resource.LastName;
-                txtDescription.Text = response.Resource.Description;
+                textBox_mail.Text = response.Resource.Email;
+                textBox_name.Text = response.Resource.Name;
+                textBox_lastname.Text = response.Resource.LastName;
+                richTextBox_descripcion.Text = response.Resource.Description;
                 logo.LoadAsync(response.Resource.Logo);
             }
-            else {
+            else
+            {
                 ////////////////////student case
-                
+
                 StudydeskDesktopApp.GetStudentById.StudentResponse response;
 
 
                 response = studentById.RetornarUsuarioEstudiantePorId(this.userId);
 
-                txtName.Text = response.Resource.Name;
-                txtLastname.Text = response.Resource.LastName;
-                txtDescription.Text = "Soy un estudiante";
+                textBox_mail.Text = response.Resource.Email;
+                textBox_name.Text = response.Resource.Name;
+                textBox_lastname.Text = response.Resource.LastName;
+                richTextBox_descripcion.Text = "Soy un estudiante";
                 logo.LoadAsync(response.Resource.Logo);
             }
-
-
-
-
-
-        }
-
-        private void btEditar_Click(object sender, EventArgs e)
-        {
-            EditProfile form1 = new EditProfile(this.userId, this.userIsTutor);
-            form1.Show();
         }
     }
 }

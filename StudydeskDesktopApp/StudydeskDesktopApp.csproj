@@ -63,6 +63,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CloudinaryApi.cs" />
+    <Compile Include="EditProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditProfile.Designer.cs">
+      <DependentUpon>EditProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu\CoursesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EditProfile.resx">
+      <DependentUpon>EditProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu\CoursesForm.resx">
       <DependentUpon>CoursesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -282,10 +291,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>StudydeskDesktopApp_Authentication_WebServiceAuthentication</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="https://studydeskv1webservices.azurewebsites.net/WebServiceGetStudentById.asmx">
+    <WebReferenceUrl Include="https://studydeskv1webservices.azurewebsites.net/WebServices/Student/WebServiceGetStudentById.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\GetStudentById\</RelPath>
-      <UpdateFromURL>https://studydeskv1webservices.azurewebsites.net/WebServiceGetStudentById.asmx</UpdateFromURL>
+      <UpdateFromURL>https://studydeskv1webservices.azurewebsites.net/WebServices/Student/WebServiceGetStudentById.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -293,32 +302,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>StudydeskDesktopApp_GetStudentById_WebServiceGetStudentById</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="https://studydeskv1webservices.azurewebsites.net/WebServiceGetTutorById.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\GetTutorById\</RelPath>
-      <UpdateFromURL>https://studydeskv1webservices.azurewebsites.net/WebServiceGetTutorById.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>StudydeskDesktopApp_GetTutorById_WebServiceGetTutorById</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="https://studydeskv1webservices.azurewebsites.net/WebServiceGetTutors.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\GetTutors\</RelPath>
-      <UpdateFromURL>https://studydeskv1webservices.azurewebsites.net/WebServiceGetTutors.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>StudydeskDesktopApp_GetTutors_WebServiceGetTutors</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="https://studydeskv1webservices.azurewebsites.net/WebServicePostStudent.asmx">
+    <WebReferenceUrl Include="https://studydeskv1webservices.azurewebsites.net/WebServices/Student/WebServicePostStudent.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\PostStudent\</RelPath>
-      <UpdateFromURL>https://studydeskv1webservices.azurewebsites.net/WebServicePostStudent.asmx</UpdateFromURL>
+      <UpdateFromURL>https://studydeskv1webservices.azurewebsites.net/WebServices/Student/WebServicePostStudent.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -326,10 +313,32 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>StudydeskDesktopApp_PostStudent_WebServicePostStudent</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="https://studydeskv1webservices.azurewebsites.net/WebServicePostTutor.asmx">
+    <WebReferenceUrl Include="https://studydeskv1webservices.azurewebsites.net/WebServices/Tutor/WebServiceGetTutorById.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\GetTutorById\</RelPath>
+      <UpdateFromURL>https://studydeskv1webservices.azurewebsites.net/WebServices/Tutor/WebServiceGetTutorById.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>StudydeskDesktopApp_GetTutorById_WebServiceGetTutorById</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://studydeskv1webservices.azurewebsites.net/WebServices/Tutor/WebServiceGetTutors.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\GetTutors\</RelPath>
+      <UpdateFromURL>https://studydeskv1webservices.azurewebsites.net/WebServices/Tutor/WebServiceGetTutors.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>StudydeskDesktopApp_GetTutors_WebServiceGetTutors</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://studydeskv1webservices.azurewebsites.net/WebServices/Tutor/WebServicePostTutor.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\PostTutor\</RelPath>
-      <UpdateFromURL>https://studydeskv1webservices.azurewebsites.net/WebServicePostTutor.asmx</UpdateFromURL>
+      <UpdateFromURL>https://studydeskv1webservices.azurewebsites.net/WebServices/Tutor/WebServicePostTutor.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -337,10 +346,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>StudydeskDesktopApp_PostTutor_WebServicePostTutor</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="https://studydeskv1webservices.azurewebsites.net/WebServiceUpdateTutor.asmx">
+    <WebReferenceUrl Include="https://studydeskv1webservices.azurewebsites.net/WebServices/Tutor/WebServiceUpdateTutor.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\PutTutor\</RelPath>
-      <UpdateFromURL>https://studydeskv1webservices.azurewebsites.net/WebServiceUpdateTutor.asmx</UpdateFromURL>
+      <UpdateFromURL>https://studydeskv1webservices.azurewebsites.net/WebServices/Tutor/WebServiceUpdateTutor.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -395,13 +404,13 @@
     <None Include="Resources\studydesk_title_logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Web References\Authentication\WebServiceAuthentication.disco" />
-    <None Include="Web References\PostTutor\WebServicePostTutor.disco" />
-    <None Include="Web References\PutTutor\WebServiceUpdateTutor.disco" />
-    <None Include="Web References\GetStudentById\WebServiceGetStudentById.disco" />
-    <None Include="Web References\GetTutorById\WebServiceGetTutorById.disco" />
-    <None Include="Web References\PostStudent\WebServicePostStudent.disco" />
     <None Include="Web References\GetTutors\WebServiceGetTutors.disco" />
+    <None Include="Web References\PutTutor\WebServiceUpdateTutor.disco" />
+    <None Include="Web References\GetTutorById\WebServiceGetTutorById.disco" />
+    <None Include="Web References\GetStudentById\WebServiceGetStudentById.disco" />
+    <None Include="Web References\PostStudent\WebServicePostStudent.disco" />
+    <None Include="Web References\PostTutor\WebServicePostTutor.disco" />
+    <None Include="Web References\Authentication\WebServiceAuthentication.disco" />
     <None Include="Resources\default-placeholder.png" />
     <None Include="Resources\jake.jpeg" />
     <None Include="Assets\books-stack-of-three.png" />
