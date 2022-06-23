@@ -49,6 +49,7 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="AuthenticationResponse" nillable="true" type="tns:AuthenticationResponse" />
     </s:schema>
   </wsdl:types>
   <wsdl:message name="AutenticarUsuarioTutorSoapIn">
@@ -63,6 +64,34 @@
   <wsdl:message name="AutenticarUsuarioEstudianteSoapOut">
     <wsdl:part name="parameters" element="tns:AutenticarUsuarioEstudianteResponse" />
   </wsdl:message>
+  <wsdl:message name="AutenticarUsuarioTutorHttpGetIn">
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarUsuarioTutorHttpGetOut">
+    <wsdl:part name="Body" element="tns:AuthenticationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarUsuarioEstudianteHttpGetIn">
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarUsuarioEstudianteHttpGetOut">
+    <wsdl:part name="Body" element="tns:AuthenticationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarUsuarioTutorHttpPostIn">
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarUsuarioTutorHttpPostOut">
+    <wsdl:part name="Body" element="tns:AuthenticationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarUsuarioEstudianteHttpPostIn">
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarUsuarioEstudianteHttpPostOut">
+    <wsdl:part name="Body" element="tns:AuthenticationResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebServiceAuthenticationSoap">
     <wsdl:operation name="AutenticarUsuarioTutor">
       <wsdl:input message="tns:AutenticarUsuarioTutorSoapIn" />
@@ -71,6 +100,26 @@
     <wsdl:operation name="AutenticarUsuarioEstudiante">
       <wsdl:input message="tns:AutenticarUsuarioEstudianteSoapIn" />
       <wsdl:output message="tns:AutenticarUsuarioEstudianteSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebServiceAuthenticationHttpGet">
+    <wsdl:operation name="AutenticarUsuarioTutor">
+      <wsdl:input message="tns:AutenticarUsuarioTutorHttpGetIn" />
+      <wsdl:output message="tns:AutenticarUsuarioTutorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AutenticarUsuarioEstudiante">
+      <wsdl:input message="tns:AutenticarUsuarioEstudianteHttpGetIn" />
+      <wsdl:output message="tns:AutenticarUsuarioEstudianteHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebServiceAuthenticationHttpPost">
+    <wsdl:operation name="AutenticarUsuarioTutor">
+      <wsdl:input message="tns:AutenticarUsuarioTutorHttpPostIn" />
+      <wsdl:output message="tns:AutenticarUsuarioTutorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AutenticarUsuarioEstudiante">
+      <wsdl:input message="tns:AutenticarUsuarioEstudianteHttpPostIn" />
+      <wsdl:output message="tns:AutenticarUsuarioEstudianteHttpPostOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServiceAuthenticationSoap" type="tns:WebServiceAuthenticationSoap">
@@ -115,12 +164,60 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="WebServiceAuthenticationHttpGet" type="tns:WebServiceAuthenticationHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="AutenticarUsuarioTutor">
+      <http:operation location="/AutenticarUsuarioTutor" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutenticarUsuarioEstudiante">
+      <http:operation location="/AutenticarUsuarioEstudiante" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceAuthenticationHttpPost" type="tns:WebServiceAuthenticationHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="AutenticarUsuarioTutor">
+      <http:operation location="/AutenticarUsuarioTutor" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutenticarUsuarioEstudiante">
+      <http:operation location="/AutenticarUsuarioEstudiante" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="WebServiceAuthentication">
     <wsdl:port name="WebServiceAuthenticationSoap" binding="tns:WebServiceAuthenticationSoap">
-      <soap:address location="https://localhost:44304/WebServiceAuthentication.asmx" />
+      <soap:address location="https://studydeskv1webservices.azurewebsites.net/WebServiceAuthentication.asmx" />
     </wsdl:port>
     <wsdl:port name="WebServiceAuthenticationSoap12" binding="tns:WebServiceAuthenticationSoap12">
-      <soap12:address location="https://localhost:44304/WebServiceAuthentication.asmx" />
+      <soap12:address location="https://studydeskv1webservices.azurewebsites.net/WebServiceAuthentication.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceAuthenticationHttpGet" binding="tns:WebServiceAuthenticationHttpGet">
+      <http:address location="https://studydeskv1webservices.azurewebsites.net/WebServiceAuthentication.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceAuthenticationHttpPost" binding="tns:WebServiceAuthenticationHttpPost">
+      <http:address location="https://studydeskv1webservices.azurewebsites.net/WebServiceAuthentication.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

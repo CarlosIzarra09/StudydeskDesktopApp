@@ -13,13 +13,13 @@
 // 
 #pragma warning disable 1591
 
-namespace StudydeskDesktopApp.PutTutors {
-    using System.Diagnostics;
+namespace StudydeskDesktopApp.PutTutor {
     using System;
+    using System.Web.Services;
+    using System.Diagnostics;
+    using System.Web.Services.Protocols;
     using System.Xml.Serialization;
     using System.ComponentModel;
-    using System.Web.Services.Protocols;
-    using System.Web.Services;
     
     
     /// <remarks/>
@@ -27,7 +27,10 @@ namespace StudydeskDesktopApp.PutTutors {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="WebServiceUpdateTutorSoap", Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseResponseOfWsSecurity))]
     public partial class WebServiceUpdateTutor : System.Web.Services.Protocols.SoapHttpClientProtocol {
+        
+        private AuthHeader authHeaderValueField;
         
         private System.Threading.SendOrPostCallback ActualizarTutorOperationCompleted;
         
@@ -35,13 +38,22 @@ namespace StudydeskDesktopApp.PutTutors {
         
         /// <remarks/>
         public WebServiceUpdateTutor() {
-            this.Url = global::StudydeskDesktopApp.Properties.Settings.Default.StudydeskDesktopApp_PutTutors_WebServiceUpdateTutor;
+            this.Url = global::StudydeskDesktopApp.Properties.Settings.Default.StudydeskDesktopApp_PutTutor_WebServiceUpdateTutor;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
             }
             else {
                 this.useDefaultCredentialsSetExplicitly = true;
+            }
+        }
+        
+        public AuthHeader AuthHeaderValue {
+            get {
+                return this.authHeaderValueField;
+            }
+            set {
+                this.authHeaderValueField = value;
             }
         }
         
@@ -73,8 +85,9 @@ namespace StudydeskDesktopApp.PutTutors {
         public event ActualizarTutorCompletedEventHandler ActualizarTutorCompleted;
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapHeaderAttribute("AuthHeaderValue")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ActualizarTutor", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string ActualizarTutor(int id, string name, string lastName, string description, string logo, string email, string password, double priceperhour, int courseId) {
+        public WsSecurityResponse ActualizarTutor(int id, string name, string lastName, string description, string logo, string email, string password, double priceperhour, int courseId) {
             object[] results = this.Invoke("ActualizarTutor", new object[] {
                         id,
                         name,
@@ -85,7 +98,7 @@ namespace StudydeskDesktopApp.PutTutors {
                         password,
                         priceperhour,
                         courseId});
-            return ((string)(results[0]));
+            return ((WsSecurityResponse)(results[0]));
         }
         
         /// <remarks/>
@@ -137,6 +150,117 @@ namespace StudydeskDesktopApp.PutTutors {
     }
     
     /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4161.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://tempuri.org/", IsNullable=false)]
+    public partial class AuthHeader : System.Web.Services.Protocols.SoapHeader {
+        
+        private string usernameField;
+        
+        private string passwordField;
+        
+        private System.Xml.XmlAttribute[] anyAttrField;
+        
+        /// <remarks/>
+        public string Username {
+            get {
+                return this.usernameField;
+            }
+            set {
+                this.usernameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Password {
+            get {
+                return this.passwordField;
+            }
+            set {
+                this.passwordField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAnyAttributeAttribute()]
+        public System.Xml.XmlAttribute[] AnyAttr {
+            get {
+                return this.anyAttrField;
+            }
+            set {
+                this.anyAttrField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4161.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class WsSecurity {
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WsSecurityResponse))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4161.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public abstract partial class BaseResponseOfWsSecurity {
+        
+        private bool successField;
+        
+        private string messageField;
+        
+        private WsSecurity resourceField;
+        
+        /// <remarks/>
+        public bool Success {
+            get {
+                return this.successField;
+            }
+            set {
+                this.successField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public WsSecurity Resource {
+            get {
+                return this.resourceField;
+            }
+            set {
+                this.resourceField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4161.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class WsSecurityResponse : BaseResponseOfWsSecurity {
+    }
+    
+    /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4161.0")]
     public delegate void ActualizarTutorCompletedEventHandler(object sender, ActualizarTutorCompletedEventArgs e);
     
@@ -154,10 +278,10 @@ namespace StudydeskDesktopApp.PutTutors {
         }
         
         /// <remarks/>
-        public string Result {
+        public WsSecurityResponse Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((WsSecurityResponse)(this.results[0]));
             }
         }
     }

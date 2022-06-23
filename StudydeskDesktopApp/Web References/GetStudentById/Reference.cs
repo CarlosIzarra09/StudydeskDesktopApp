@@ -14,12 +14,12 @@
 #pragma warning disable 1591
 
 namespace StudydeskDesktopApp.GetStudentById {
-    using System.Diagnostics;
     using System;
+    using System.Web.Services;
+    using System.Diagnostics;
+    using System.Web.Services.Protocols;
     using System.Xml.Serialization;
     using System.ComponentModel;
-    using System.Web.Services.Protocols;
-    using System.Web.Services;
     
     
     /// <remarks/>
@@ -29,6 +29,8 @@ namespace StudydeskDesktopApp.GetStudentById {
     [System.Web.Services.WebServiceBindingAttribute(Name="WebServiceGetStudentByIdSoap", Namespace="http://tempuri.org/")]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseResponseOfStudent))]
     public partial class WebServiceGetStudentById : System.Web.Services.Protocols.SoapHttpClientProtocol {
+        
+        private AuthHeader authHeaderValueField;
         
         private System.Threading.SendOrPostCallback RetornarUsuarioEstudiantePorIdOperationCompleted;
         
@@ -43,6 +45,15 @@ namespace StudydeskDesktopApp.GetStudentById {
             }
             else {
                 this.useDefaultCredentialsSetExplicitly = true;
+            }
+        }
+        
+        public AuthHeader AuthHeaderValue {
+            get {
+                return this.authHeaderValueField;
+            }
+            set {
+                this.authHeaderValueField = value;
             }
         }
         
@@ -74,6 +85,7 @@ namespace StudydeskDesktopApp.GetStudentById {
         public event RetornarUsuarioEstudiantePorIdCompletedEventHandler RetornarUsuarioEstudiantePorIdCompleted;
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapHeaderAttribute("AuthHeaderValue")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RetornarUsuarioEstudiantePorId", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public StudentResponse RetornarUsuarioEstudiantePorId(int id) {
             object[] results = this.Invoke("RetornarUsuarioEstudiantePorId", new object[] {
@@ -127,51 +139,43 @@ namespace StudydeskDesktopApp.GetStudentById {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class StudentResponse : BaseResponseOfStudent {
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StudentResponse))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4161.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public abstract partial class BaseResponseOfStudent {
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://tempuri.org/", IsNullable=false)]
+    public partial class AuthHeader : System.Web.Services.Protocols.SoapHeader {
         
-        private bool successField;
+        private string usernameField;
         
-        private string messageField;
+        private string passwordField;
         
-        private Student resourceField;
+        private System.Xml.XmlAttribute[] anyAttrField;
         
         /// <remarks/>
-        public bool Success {
+        public string Username {
             get {
-                return this.successField;
+                return this.usernameField;
             }
             set {
-                this.successField = value;
+                this.usernameField = value;
             }
         }
         
         /// <remarks/>
-        public string Message {
+        public string Password {
             get {
-                return this.messageField;
+                return this.passwordField;
             }
             set {
-                this.messageField = value;
+                this.passwordField = value;
             }
         }
         
         /// <remarks/>
-        public Student Resource {
+        [System.Xml.Serialization.XmlAnyAttributeAttribute()]
+        public System.Xml.XmlAttribute[] AnyAttr {
             get {
-                return this.resourceField;
+                return this.anyAttrField;
             }
             set {
-                this.resourceField = value;
+                this.anyAttrField = value;
             }
         }
     }
@@ -267,6 +271,61 @@ namespace StudydeskDesktopApp.GetStudentById {
                 this.careerIdField = value;
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StudentResponse))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4161.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public abstract partial class BaseResponseOfStudent {
+        
+        private bool successField;
+        
+        private string messageField;
+        
+        private Student resourceField;
+        
+        /// <remarks/>
+        public bool Success {
+            get {
+                return this.successField;
+            }
+            set {
+                this.successField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Student Resource {
+            get {
+                return this.resourceField;
+            }
+            set {
+                this.resourceField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4161.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class StudentResponse : BaseResponseOfStudent {
     }
     
     /// <remarks/>

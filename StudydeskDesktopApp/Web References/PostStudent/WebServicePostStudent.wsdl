@@ -18,10 +18,32 @@
       <s:element name="InsertarEstudianteResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="InsertarEstudianteResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="InsertarEstudianteResult" type="tns:WsSecurityResponse" />
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="WsSecurityResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseResponseOfWsSecurity" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseResponseOfWsSecurity" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Resource" type="tns:WsSecurity" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WsSecurity" />
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="WsSecurityResponse" nillable="true" type="tns:WsSecurityResponse" />
     </s:schema>
   </wsdl:types>
   <wsdl:message name="InsertarEstudianteSoapIn">
@@ -30,10 +52,49 @@
   <wsdl:message name="InsertarEstudianteSoapOut">
     <wsdl:part name="parameters" element="tns:InsertarEstudianteResponse" />
   </wsdl:message>
+  <wsdl:message name="InsertarEstudianteAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="InsertarEstudianteHttpGetIn">
+    <wsdl:part name="name" type="s:string" />
+    <wsdl:part name="lastName" type="s:string" />
+    <wsdl:part name="logo" type="s:string" />
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="isTutor" type="s:string" />
+    <wsdl:part name="careerId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsertarEstudianteHttpGetOut">
+    <wsdl:part name="Body" element="tns:WsSecurityResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertarEstudianteHttpPostIn">
+    <wsdl:part name="name" type="s:string" />
+    <wsdl:part name="lastName" type="s:string" />
+    <wsdl:part name="logo" type="s:string" />
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="isTutor" type="s:string" />
+    <wsdl:part name="careerId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsertarEstudianteHttpPostOut">
+    <wsdl:part name="Body" element="tns:WsSecurityResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebServicePostStudentSoap">
     <wsdl:operation name="InsertarEstudiante">
       <wsdl:input message="tns:InsertarEstudianteSoapIn" />
       <wsdl:output message="tns:InsertarEstudianteSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebServicePostStudentHttpGet">
+    <wsdl:operation name="InsertarEstudiante">
+      <wsdl:input message="tns:InsertarEstudianteHttpGetIn" />
+      <wsdl:output message="tns:InsertarEstudianteHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebServicePostStudentHttpPost">
+    <wsdl:operation name="InsertarEstudiante">
+      <wsdl:input message="tns:InsertarEstudianteHttpPostIn" />
+      <wsdl:output message="tns:InsertarEstudianteHttpPostOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServicePostStudentSoap" type="tns:WebServicePostStudentSoap">
@@ -42,6 +103,7 @@
       <soap:operation soapAction="http://tempuri.org/InsertarEstudiante" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:InsertarEstudianteAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
@@ -54,18 +116,49 @@
       <soap12:operation soapAction="http://tempuri.org/InsertarEstudiante" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:InsertarEstudianteAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="WebServicePostStudentHttpGet" type="tns:WebServicePostStudentHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="InsertarEstudiante">
+      <http:operation location="/InsertarEstudiante" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServicePostStudentHttpPost" type="tns:WebServicePostStudentHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="InsertarEstudiante">
+      <http:operation location="/InsertarEstudiante" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="WebServicePostStudent">
     <wsdl:port name="WebServicePostStudentSoap" binding="tns:WebServicePostStudentSoap">
-      <soap:address location="https://localhost:44304/WebServicePostStudent.asmx" />
+      <soap:address location="https://studydeskv1webservices.azurewebsites.net/WebServicePostStudent.asmx" />
     </wsdl:port>
     <wsdl:port name="WebServicePostStudentSoap12" binding="tns:WebServicePostStudentSoap12">
-      <soap12:address location="https://localhost:44304/WebServicePostStudent.asmx" />
+      <soap12:address location="https://studydeskv1webservices.azurewebsites.net/WebServicePostStudent.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServicePostStudentHttpGet" binding="tns:WebServicePostStudentHttpGet">
+      <http:address location="https://studydeskv1webservices.azurewebsites.net/WebServicePostStudent.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServicePostStudentHttpPost" binding="tns:WebServicePostStudentHttpPost">
+      <http:address location="https://studydeskv1webservices.azurewebsites.net/WebServicePostStudent.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

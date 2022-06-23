@@ -13,11 +13,23 @@ namespace StudydeskDesktopApp
     public partial class RegisterStudent : Form
     {
         OpenFileDialog openImage = new OpenFileDialog();
+        StudydeskDesktopApp.PostStudent.WebServicePostStudent postStudent;
 
         public RegisterStudent()
         {
             InitializeComponent();
+            InitializeWebServices();
         }
+
+        public void InitializeWebServices() {
+            postStudent = new StudydeskDesktopApp.PostStudent.WebServicePostStudent();
+            postStudent.AuthHeaderValue = new StudydeskDesktopApp.PostStudent.AuthHeader
+            {
+                Username = "studydesk",
+                Password = "x6$XEx$Ln@8oSsDreXo74BfYHj8SAoXkxP779qjQ"
+            };
+        }
+
 
         private void label_login_Click(object sender, EventArgs e)
         {
@@ -36,9 +48,7 @@ namespace StudydeskDesktopApp
             }
             else {
                 
-                StudydeskDesktopApp.PostStudent.WebServicePostStudent postStudent = new StudydeskDesktopApp.PostStudent.WebServicePostStudent();
-
-
+      
                 if (openImage.FileName != string.Empty)
                 {
 
@@ -51,7 +61,7 @@ namespace StudydeskDesktopApp
                         textBox_email.Text, 
                         textBox_contraseña.Text, 
                         0, //IMPORTANT: ISTUTOR ALWAYS WILL BE "0", but if someone have sufficient time for coding "student BECOMES tutor" option.... 
-                        1);//id de carrera, esto se escoge, pero por ahora es 1 por defecto
+                        1).Message;//id de carrera, esto se escoge, pero por ahora es 1 por defecto
                     
                     nextPageConfirmation(response);
                 }
@@ -62,7 +72,7 @@ namespace StudydeskDesktopApp
                         textBox_email.Text, 
                         textBox_contraseña.Text, 
                         0, 
-                        1);
+                        1).Message;
 
                     nextPageConfirmation(response);
                 }

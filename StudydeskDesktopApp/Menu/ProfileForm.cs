@@ -12,7 +12,9 @@ namespace StudydeskDesktopApp.Menu
 {
     public partial class ProfileForm : Form
     {
-        OpenFileDialog openImage = new OpenFileDialog();
+        private OpenFileDialog openImage = new OpenFileDialog();
+        private StudydeskDesktopApp.GetTutorById.WebServiceGetTutorById tutorById;
+        private StudydeskDesktopApp.GetStudentById.WebServiceGetStudentById studentById;
 
 
         public static ProfileForm Instance = null;
@@ -21,10 +23,31 @@ namespace StudydeskDesktopApp.Menu
         public ProfileForm(int id,bool isTutor)
         {
             InitializeComponent();
+            InitializeWebServices();
             Instance = this;
             this.userId = id;
             this.userIsTutor = isTutor;
+            
         }
+
+        public void InitializeWebServices() {
+
+            this.tutorById = new StudydeskDesktopApp.GetTutorById.WebServiceGetTutorById();
+            
+            tutorById.AuthHeaderValue = new StudydeskDesktopApp.GetTutorById.AuthHeader
+            {
+                Username = "studydesk",
+                Password = "x6$XEx$Ln@8oSsDreXo74BfYHj8SAoXkxP779qjQ"
+            };
+
+            this.studentById = new StudydeskDesktopApp.GetStudentById.WebServiceGetStudentById();
+            studentById.AuthHeaderValue = new StudydeskDesktopApp.GetStudentById.AuthHeader
+            {
+                Username = "studydesk",
+                Password = "x6$XEx$Ln@8oSsDreXo74BfYHj8SAoXkxP779qjQ"
+            };
+        }
+
 
         private void ProfileForm_Load(object sender, EventArgs e)
         {
@@ -40,7 +63,7 @@ namespace StudydeskDesktopApp.Menu
 
             if (this.userIsTutor)
             {
-                StudydeskDesktopApp.GetTutorById.WebServiceGetTutorById tutorById = new StudydeskDesktopApp.GetTutorById.WebServiceGetTutorById();
+                
                 StudydeskDesktopApp.GetTutorById.TutorResponse response;
 
                 response = tutorById.RetornarUsuarioTutorPorId(this.userId);
@@ -52,8 +75,9 @@ namespace StudydeskDesktopApp.Menu
             }
             else {
                 ////////////////////student case
-                StudydeskDesktopApp.GetStudentById.WebServiceGetStudentById studentById = new StudydeskDesktopApp.GetStudentById.WebServiceGetStudentById();
+                
                 StudydeskDesktopApp.GetStudentById.StudentResponse response;
+
 
                 response = studentById.RetornarUsuarioEstudiantePorId(this.userId);
 

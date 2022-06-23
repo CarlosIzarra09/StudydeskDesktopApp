@@ -12,7 +12,7 @@ namespace StudydeskDesktopApp.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.1.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,7 +26,7 @@ namespace StudydeskDesktopApp.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44304/WebServiceGetTutors.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://studydeskv1webservices.azurewebsites.net/WebServiceGetTutors.asmx")]
         public string StudydeskDesktopApp_GetTutors_WebServiceGetTutors {
             get {
                 return ((string)(this["StudydeskDesktopApp_GetTutors_WebServiceGetTutors"]));
@@ -36,37 +36,7 @@ namespace StudydeskDesktopApp.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44304/WebServiceAuthentication.asmx")]
-        public string StudydeskDesktopApp_Authentication_WebServiceAuthentication {
-            get {
-                return ((string)(this["StudydeskDesktopApp_Authentication_WebServiceAuthentication"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44304/WebServiceGetTutorById.asmx")]
-        public string StudydeskDesktopApp_GetTutorById_WebServiceGetTutorById {
-            get {
-                return ((string)(this["StudydeskDesktopApp_GetTutorById_WebServiceGetTutorById"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44304/WebServicePostTutor.asmx")]
-        public string StudydeskDesktopApp_PostTutor_WebServicePostTutor {
-            get {
-                return ((string)(this["StudydeskDesktopApp_PostTutor_WebServicePostTutor"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44304/WebServicePostStudent.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://studydeskv1webservices.azurewebsites.net/WebServicePostStudent.asmx")]
         public string StudydeskDesktopApp_PostStudent_WebServicePostStudent {
             get {
                 return ((string)(this["StudydeskDesktopApp_PostStudent_WebServicePostStudent"]));
@@ -76,20 +46,50 @@ namespace StudydeskDesktopApp.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44304/WebServiceUpdateTutor.asmx")]
-        public string StudydeskDesktopApp_PutTutors_WebServiceUpdateTutor {
+        [global::System.Configuration.DefaultSettingValueAttribute("https://studydeskv1webservices.azurewebsites.net/WebServiceGetTutorById.asmx")]
+        public string StudydeskDesktopApp_GetTutorById_WebServiceGetTutorById {
             get {
-                return ((string)(this["StudydeskDesktopApp_PutTutors_WebServiceUpdateTutor"]));
+                return ((string)(this["StudydeskDesktopApp_GetTutorById_WebServiceGetTutorById"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44304/WebServiceGetStudentById.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://studydeskv1webservices.azurewebsites.net/WebServiceGetStudentById.asmx")]
         public string StudydeskDesktopApp_GetStudentById_WebServiceGetStudentById {
             get {
                 return ((string)(this["StudydeskDesktopApp_GetStudentById_WebServiceGetStudentById"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://studydeskv1webservices.azurewebsites.net/WebServiceUpdateTutor.asmx")]
+        public string StudydeskDesktopApp_PutTutor_WebServiceUpdateTutor {
+            get {
+                return ((string)(this["StudydeskDesktopApp_PutTutor_WebServiceUpdateTutor"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://studydeskv1webservices.azurewebsites.net/WebServicePostTutor.asmx")]
+        public string StudydeskDesktopApp_PostTutor_WebServicePostTutor {
+            get {
+                return ((string)(this["StudydeskDesktopApp_PostTutor_WebServicePostTutor"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://studydeskv1webservices.azurewebsites.net/WebServiceAuthentication.asmx")]
+        public string StudydeskDesktopApp_Authentication_WebServiceAuthentication {
+            get {
+                return ((string)(this["StudydeskDesktopApp_Authentication_WebServiceAuthentication"]));
             }
         }
     }

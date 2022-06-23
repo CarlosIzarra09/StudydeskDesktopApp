@@ -12,20 +12,38 @@ namespace StudydeskDesktopApp
 {
     public partial class RegisterTutors : Form
     {
-        OpenFileDialog openImage = new OpenFileDialog();
+        private OpenFileDialog openImage = new OpenFileDialog();
+        private StudydeskDesktopApp.PostTutor.WebServicePostTutor postTutor;
 
         public RegisterTutors()
         {
             InitializeComponent();
+            InitializeWebServices();
+        }
+
+        public void InitializeWebServices() {
+            postTutor = new StudydeskDesktopApp.PostTutor.WebServicePostTutor();
+            postTutor.AuthHeaderValue = new StudydeskDesktopApp.PostTutor.AuthHeader
+            {
+                Username = "studydesk",
+                Password = "x6$XEx$Ln@8oSsDreXo74BfYHj8SAoXkxP779qjQ"
+            };
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             
+            
+
             if (openImage.ShowDialog() == DialogResult.OK)
             {
                 logo.ImageLocation = openImage.FileName;
                 logo.SizeMode = PictureBoxSizeMode.StretchImage;
+                System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+
+                gp.AddEllipse(0, 0, logo.Width - 3, logo.Height - 3);
+                Region rg = new Region(gp);
+                logo.Region = rg;
             }
         }
 
@@ -46,7 +64,7 @@ namespace StudydeskDesktopApp
             }
             else
             {
-                StudydeskDesktopApp.PostTutor.WebServicePostTutor postTutor = new StudydeskDesktopApp.PostTutor.WebServicePostTutor();
+                
 
                 if (openImage.FileName != string.Empty)
                 {
@@ -61,7 +79,7 @@ namespace StudydeskDesktopApp
                         textBox_email.Text,
                         textBox_contraseña.Text,
                         Convert.ToDouble(textBox_pricePhour.Text),
-                        1);
+                        1).Message;
 
                     nextPageConfirmation(response);
                 }
@@ -74,7 +92,7 @@ namespace StudydeskDesktopApp
                         textBox_email.Text,
                         textBox_contraseña.Text,
                          Convert.ToDouble(textBox_pricePhour.Text),
-                        1);
+                        1).Message;
 
                     nextPageConfirmation(response);
                 }

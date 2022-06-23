@@ -12,11 +12,20 @@ namespace StudydeskDesktopApp
 {
     public partial class LoginForm : Form
     {
+        private StudydeskDesktopApp.Authentication.WebServiceAuthentication authenticateUser;
+
         public static LoginForm Instance = null;
+       
         public LoginForm()
         {
             InitializeComponent();
+            InitializeWebServices();
+
             Instance = this;
+        }
+
+        public void InitializeWebServices() {
+            authenticateUser = new StudydeskDesktopApp.Authentication.WebServiceAuthentication();
         }
 
         
@@ -28,8 +37,9 @@ namespace StudydeskDesktopApp
 
         private void btLogin_Click(object sender, EventArgs e)
         {
-            StudydeskDesktopApp.Authentication.WebServiceAuthentication authenticateUser = new StudydeskDesktopApp.Authentication.WebServiceAuthentication();
+            
             StudydeskDesktopApp.Authentication.AuthenticationResponse response;
+
             if (checkBIsTutor.Checked)
                 response = authenticateUser.AutenticarUsuarioTutor(txbEmail.Text, txbPassword.Text);
             else

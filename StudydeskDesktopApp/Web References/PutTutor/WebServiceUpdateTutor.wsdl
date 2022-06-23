@@ -2,9 +2,10 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      <s:element name="InsertarTutor">
+      <s:element name="ActualizarTutor">
         <s:complexType>
           <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
             <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
@@ -16,10 +17,10 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="InsertarTutorResponse">
+      <s:element name="ActualizarTutorResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="InsertarTutorResult" type="tns:WsSecurityResponse" />
+            <s:element minOccurs="0" maxOccurs="1" name="ActualizarTutorResult" type="tns:WsSecurityResponse" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -47,16 +48,17 @@
       <s:element name="WsSecurityResponse" nillable="true" type="tns:WsSecurityResponse" />
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="InsertarTutorSoapIn">
-    <wsdl:part name="parameters" element="tns:InsertarTutor" />
+  <wsdl:message name="ActualizarTutorSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarTutor" />
   </wsdl:message>
-  <wsdl:message name="InsertarTutorSoapOut">
-    <wsdl:part name="parameters" element="tns:InsertarTutorResponse" />
+  <wsdl:message name="ActualizarTutorSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarTutorResponse" />
   </wsdl:message>
-  <wsdl:message name="InsertarTutorAuthHeader">
+  <wsdl:message name="ActualizarTutorAuthHeader">
     <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
   </wsdl:message>
-  <wsdl:message name="InsertarTutorHttpGetIn">
+  <wsdl:message name="ActualizarTutorHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
     <wsdl:part name="name" type="s:string" />
     <wsdl:part name="lastName" type="s:string" />
     <wsdl:part name="description" type="s:string" />
@@ -66,10 +68,11 @@
     <wsdl:part name="priceperhour" type="s:string" />
     <wsdl:part name="courseId" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="InsertarTutorHttpGetOut">
+  <wsdl:message name="ActualizarTutorHttpGetOut">
     <wsdl:part name="Body" element="tns:WsSecurityResponse" />
   </wsdl:message>
-  <wsdl:message name="InsertarTutorHttpPostIn">
+  <wsdl:message name="ActualizarTutorHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
     <wsdl:part name="name" type="s:string" />
     <wsdl:part name="lastName" type="s:string" />
     <wsdl:part name="description" type="s:string" />
@@ -79,57 +82,57 @@
     <wsdl:part name="priceperhour" type="s:string" />
     <wsdl:part name="courseId" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="InsertarTutorHttpPostOut">
+  <wsdl:message name="ActualizarTutorHttpPostOut">
     <wsdl:part name="Body" element="tns:WsSecurityResponse" />
   </wsdl:message>
-  <wsdl:portType name="WebServicePostTutorSoap">
-    <wsdl:operation name="InsertarTutor">
-      <wsdl:input message="tns:InsertarTutorSoapIn" />
-      <wsdl:output message="tns:InsertarTutorSoapOut" />
+  <wsdl:portType name="WebServiceUpdateTutorSoap">
+    <wsdl:operation name="ActualizarTutor">
+      <wsdl:input message="tns:ActualizarTutorSoapIn" />
+      <wsdl:output message="tns:ActualizarTutorSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:portType name="WebServicePostTutorHttpGet">
-    <wsdl:operation name="InsertarTutor">
-      <wsdl:input message="tns:InsertarTutorHttpGetIn" />
-      <wsdl:output message="tns:InsertarTutorHttpGetOut" />
+  <wsdl:portType name="WebServiceUpdateTutorHttpGet">
+    <wsdl:operation name="ActualizarTutor">
+      <wsdl:input message="tns:ActualizarTutorHttpGetIn" />
+      <wsdl:output message="tns:ActualizarTutorHttpGetOut" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:portType name="WebServicePostTutorHttpPost">
-    <wsdl:operation name="InsertarTutor">
-      <wsdl:input message="tns:InsertarTutorHttpPostIn" />
-      <wsdl:output message="tns:InsertarTutorHttpPostOut" />
+  <wsdl:portType name="WebServiceUpdateTutorHttpPost">
+    <wsdl:operation name="ActualizarTutor">
+      <wsdl:input message="tns:ActualizarTutorHttpPostIn" />
+      <wsdl:output message="tns:ActualizarTutorHttpPostOut" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="WebServicePostTutorSoap" type="tns:WebServicePostTutorSoap">
+  <wsdl:binding name="WebServiceUpdateTutorSoap" type="tns:WebServiceUpdateTutorSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="InsertarTutor">
-      <soap:operation soapAction="http://tempuri.org/InsertarTutor" style="document" />
+    <wsdl:operation name="ActualizarTutor">
+      <soap:operation soapAction="http://tempuri.org/ActualizarTutor" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
-        <soap:header message="tns:InsertarTutorAuthHeader" part="AuthHeader" use="literal" />
+        <soap:header message="tns:ActualizarTutorAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="WebServicePostTutorSoap12" type="tns:WebServicePostTutorSoap">
+  <wsdl:binding name="WebServiceUpdateTutorSoap12" type="tns:WebServiceUpdateTutorSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="InsertarTutor">
-      <soap12:operation soapAction="http://tempuri.org/InsertarTutor" style="document" />
+    <wsdl:operation name="ActualizarTutor">
+      <soap12:operation soapAction="http://tempuri.org/ActualizarTutor" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
-        <soap12:header message="tns:InsertarTutorAuthHeader" part="AuthHeader" use="literal" />
+        <soap12:header message="tns:ActualizarTutorAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="WebServicePostTutorHttpGet" type="tns:WebServicePostTutorHttpGet">
+  <wsdl:binding name="WebServiceUpdateTutorHttpGet" type="tns:WebServiceUpdateTutorHttpGet">
     <http:binding verb="GET" />
-    <wsdl:operation name="InsertarTutor">
-      <http:operation location="/InsertarTutor" />
+    <wsdl:operation name="ActualizarTutor">
+      <http:operation location="/ActualizarTutor" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -138,10 +141,10 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="WebServicePostTutorHttpPost" type="tns:WebServicePostTutorHttpPost">
+  <wsdl:binding name="WebServiceUpdateTutorHttpPost" type="tns:WebServiceUpdateTutorHttpPost">
     <http:binding verb="POST" />
-    <wsdl:operation name="InsertarTutor">
-      <http:operation location="/InsertarTutor" />
+    <wsdl:operation name="ActualizarTutor">
+      <http:operation location="/ActualizarTutor" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -150,18 +153,18 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="WebServicePostTutor">
-    <wsdl:port name="WebServicePostTutorSoap" binding="tns:WebServicePostTutorSoap">
-      <soap:address location="https://studydeskv1webservices.azurewebsites.net/WebServicePostTutor.asmx" />
+  <wsdl:service name="WebServiceUpdateTutor">
+    <wsdl:port name="WebServiceUpdateTutorSoap" binding="tns:WebServiceUpdateTutorSoap">
+      <soap:address location="https://studydeskv1webservices.azurewebsites.net/WebServiceUpdateTutor.asmx" />
     </wsdl:port>
-    <wsdl:port name="WebServicePostTutorSoap12" binding="tns:WebServicePostTutorSoap12">
-      <soap12:address location="https://studydeskv1webservices.azurewebsites.net/WebServicePostTutor.asmx" />
+    <wsdl:port name="WebServiceUpdateTutorSoap12" binding="tns:WebServiceUpdateTutorSoap12">
+      <soap12:address location="https://studydeskv1webservices.azurewebsites.net/WebServiceUpdateTutor.asmx" />
     </wsdl:port>
-    <wsdl:port name="WebServicePostTutorHttpGet" binding="tns:WebServicePostTutorHttpGet">
-      <http:address location="https://studydeskv1webservices.azurewebsites.net/WebServicePostTutor.asmx" />
+    <wsdl:port name="WebServiceUpdateTutorHttpGet" binding="tns:WebServiceUpdateTutorHttpGet">
+      <http:address location="https://studydeskv1webservices.azurewebsites.net/WebServiceUpdateTutor.asmx" />
     </wsdl:port>
-    <wsdl:port name="WebServicePostTutorHttpPost" binding="tns:WebServicePostTutorHttpPost">
-      <http:address location="https://studydeskv1webservices.azurewebsites.net/WebServicePostTutor.asmx" />
+    <wsdl:port name="WebServiceUpdateTutorHttpPost" binding="tns:WebServiceUpdateTutorHttpPost">
+      <http:address location="https://studydeskv1webservices.azurewebsites.net/WebServiceUpdateTutor.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
