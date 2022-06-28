@@ -280,6 +280,17 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="https://localhost:44304/WebServices/Tutor/WebServiceUpdateTutor.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\PutTutor\</RelPath>
+      <UpdateFromURL>https://localhost:44304/WebServices/Tutor/WebServiceUpdateTutor.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>StudydeskDesktopApp_PutTutor_WebServiceUpdateTutor</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="https://studydeskv1webservices.azurewebsites.net/WebServiceAuthentication.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\Authentication\</RelPath>
@@ -346,17 +357,6 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>StudydeskDesktopApp_PostTutor_WebServicePostTutor</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="https://studydeskv1webservices.azurewebsites.net/WebServices/Tutor/WebServiceUpdateTutor.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\PutTutor\</RelPath>
-      <UpdateFromURL>https://studydeskv1webservices.azurewebsites.net/WebServices/Tutor/WebServiceUpdateTutor.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>StudydeskDesktopApp_PutTutor_WebServiceUpdateTutor</CachedSettingsPropName>
-    </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\monitor.png" />
@@ -404,8 +404,8 @@
     <None Include="Resources\studydesk_title_logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Web References\GetTutors\WebServiceGetTutors.disco" />
     <None Include="Web References\PutTutor\WebServiceUpdateTutor.disco" />
+    <None Include="Web References\GetTutors\WebServiceGetTutors.disco" />
     <None Include="Web References\GetTutorById\WebServiceGetTutorById.disco" />
     <None Include="Web References\GetStudentById\WebServiceGetStudentById.disco" />
     <None Include="Web References\PostStudent\WebServicePostStudent.disco" />

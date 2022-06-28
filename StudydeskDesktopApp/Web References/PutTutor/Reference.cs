@@ -87,27 +87,25 @@ namespace StudydeskDesktopApp.PutTutor {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapHeaderAttribute("AuthHeaderValue")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ActualizarTutor", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public WsSecurityResponse ActualizarTutor(int id, string name, string lastName, string description, string logo, string email, string password, double priceperhour, int courseId) {
+        public WsSecurityResponse ActualizarTutor(int id, string name, string lastName, string description, string logo, double priceperhour, int courseId) {
             object[] results = this.Invoke("ActualizarTutor", new object[] {
                         id,
                         name,
                         lastName,
                         description,
                         logo,
-                        email,
-                        password,
                         priceperhour,
                         courseId});
             return ((WsSecurityResponse)(results[0]));
         }
         
         /// <remarks/>
-        public void ActualizarTutorAsync(int id, string name, string lastName, string description, string logo, string email, string password, double priceperhour, int courseId) {
-            this.ActualizarTutorAsync(id, name, lastName, description, logo, email, password, priceperhour, courseId, null);
+        public void ActualizarTutorAsync(int id, string name, string lastName, string description, string logo, double priceperhour, int courseId) {
+            this.ActualizarTutorAsync(id, name, lastName, description, logo, priceperhour, courseId, null);
         }
         
         /// <remarks/>
-        public void ActualizarTutorAsync(int id, string name, string lastName, string description, string logo, string email, string password, double priceperhour, int courseId, object userState) {
+        public void ActualizarTutorAsync(int id, string name, string lastName, string description, string logo, double priceperhour, int courseId, object userState) {
             if ((this.ActualizarTutorOperationCompleted == null)) {
                 this.ActualizarTutorOperationCompleted = new System.Threading.SendOrPostCallback(this.OnActualizarTutorOperationCompleted);
             }
@@ -117,8 +115,6 @@ namespace StudydeskDesktopApp.PutTutor {
                         lastName,
                         description,
                         logo,
-                        email,
-                        password,
                         priceperhour,
                         courseId}, this.ActualizarTutorOperationCompleted, userState);
         }

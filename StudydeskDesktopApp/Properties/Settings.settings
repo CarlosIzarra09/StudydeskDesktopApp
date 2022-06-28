@@ -17,11 +17,11 @@
     <Setting Name="StudydeskDesktopApp_GetTutorById_WebServiceGetTutorById" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">https://studydeskv1webservices.azurewebsites.net/WebServices/Tutor/WebServiceGetTutorById.asmx</Value>
     </Setting>
-    <Setting Name="StudydeskDesktopApp_PutTutor_WebServiceUpdateTutor" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">https://studydeskv1webservices.azurewebsites.net/WebServices/Tutor/WebServiceUpdateTutor.asmx</Value>
-    </Setting>
     <Setting Name="StudydeskDesktopApp_GetTutors_WebServiceGetTutors" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">https://studydeskv1webservices.azurewebsites.net/WebServices/Tutor/WebServiceGetTutors.asmx</Value>
+    </Setting>
+    <Setting Name="StudydeskDesktopApp_PutTutor_WebServiceUpdateTutor" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://localhost:44304/WebServices/Tutor/WebServiceUpdateTutor.asmx</Value>
     </Setting>
   </Settings>
 </SettingsFile>

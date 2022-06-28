@@ -50,6 +50,7 @@
             this.btEditar.TabIndex = 8;
             this.btEditar.Text = "ACTUALIZAR";
             this.btEditar.UseVisualStyleBackColor = false;
+            this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
             // 
             // logo
             // 
@@ -61,6 +62,7 @@
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logo.TabIndex = 7;
             this.logo.TabStop = false;
+            this.logo.Click += new System.EventHandler(this.logo_Click);
             // 
             // textBox_mail
             // 

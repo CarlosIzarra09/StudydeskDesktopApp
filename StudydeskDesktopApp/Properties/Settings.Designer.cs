@@ -80,22 +80,21 @@ namespace StudydeskDesktopApp.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://studydeskv1webservices.azurewebsites.net/WebServices/Tutor/WebServiceUpda" +
-            "teTutor.asmx")]
-        public string StudydeskDesktopApp_PutTutor_WebServiceUpdateTutor {
+        [global::System.Configuration.DefaultSettingValueAttribute("https://studydeskv1webservices.azurewebsites.net/WebServices/Tutor/WebServiceGetT" +
+            "utors.asmx")]
+        public string StudydeskDesktopApp_GetTutors_WebServiceGetTutors {
             get {
-                return ((string)(this["StudydeskDesktopApp_PutTutor_WebServiceUpdateTutor"]));
+                return ((string)(this["StudydeskDesktopApp_GetTutors_WebServiceGetTutors"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://studydeskv1webservices.azurewebsites.net/WebServices/Tutor/WebServiceGetT" +
-            "utors.asmx")]
-        public string StudydeskDesktopApp_GetTutors_WebServiceGetTutors {
+        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44304/WebServices/Tutor/WebServiceUpdateTutor.asmx")]
+        public string StudydeskDesktopApp_PutTutor_WebServiceUpdateTutor {
             get {
-                return ((string)(this["StudydeskDesktopApp_GetTutors_WebServiceGetTutors"]));
+                return ((string)(this["StudydeskDesktopApp_PutTutor_WebServiceUpdateTutor"]));
             }
         }
     }

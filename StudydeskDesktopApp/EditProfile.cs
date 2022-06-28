@@ -15,6 +15,7 @@ namespace StudydeskDesktopApp
         private OpenFileDialog openImage = new OpenFileDialog();
         private StudydeskDesktopApp.GetTutorById.WebServiceGetTutorById tutorById;
         private StudydeskDesktopApp.GetStudentById.WebServiceGetStudentById studentById;
+        private StudydeskDesktopApp.PutTutor.WebServiceUpdateTutor updateTutorById;
         public static EditProfile Instance = null;
         public int userId = 0;
         public bool userIsTutor = false;
@@ -85,6 +86,39 @@ namespace StudydeskDesktopApp
                 richTextBox_descripcion.Text = "Soy un estudiante";
                 logo.LoadAsync(response.Resource.Logo);
             }
+        }
+
+        private void logo_Click(object sender, EventArgs e)
+        {
+            if (openImage.ShowDialog() == DialogResult.OK)
+            {
+                logo.ImageLocation = openImage.FileName;
+                logo.SizeMode = PictureBoxSizeMode.StretchImage;
+                System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+
+                gp.AddEllipse(0, 0, logo.Width - 3, logo.Height - 3);
+                Region rg = new Region(gp);
+                logo.Region = rg;
+            }
+        }
+
+        private void btEditar_Click(object sender, EventArgs e)
+        {
+            StudydeskDesktopApp.GetTutorById.TutorResponse response;
+
+            response = tutorById.RetornarUsuarioTutorPorId(this.userId);
+
+            updateTutorById.ActualizarTutor(
+               response.Resource.Id,
+               textBox_name.Text,
+               textBox_lastname.Text,
+               richTextBox_descripcion.Text,
+               response.Resource.Logo,
+               textBox_mail.Text,
+               "123",
+               response.Resource.PricePerHour,
+               response.Resource.CourseId
+               );
         }
     }
 }
