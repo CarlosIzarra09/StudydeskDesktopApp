@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="RetornarUsuarioTutorPorId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarUsuarioTutorPorIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarUsuarioTutorPorIdResult" type="tns:TutorResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TutorResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseResponseOfTutor" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseResponseOfTutor" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Resource" type="tns:Tutor" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Tutor">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Logo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PricePerHour" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CourseId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="TutorResponse" nillable="true" type="tns:TutorResponse" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RetornarUsuarioTutorPorIdSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarUsuarioTutorPorId" />
+  </wsdl:message>
+  <wsdl:message name="RetornarUsuarioTutorPorIdSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarUsuarioTutorPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarUsuarioTutorPorIdAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="RetornarUsuarioTutorPorIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RetornarUsuarioTutorPorIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:TutorResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarUsuarioTutorPorIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RetornarUsuarioTutorPorIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:TutorResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceGetTutorByIdSoap">
+    <wsdl:operation name="RetornarUsuarioTutorPorId">
+      <wsdl:input message="tns:RetornarUsuarioTutorPorIdSoapIn" />
+      <wsdl:output message="tns:RetornarUsuarioTutorPorIdSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebServiceGetTutorByIdHttpGet">
+    <wsdl:operation name="RetornarUsuarioTutorPorId">
+      <wsdl:input message="tns:RetornarUsuarioTutorPorIdHttpGetIn" />
+      <wsdl:output message="tns:RetornarUsuarioTutorPorIdHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebServiceGetTutorByIdHttpPost">
+    <wsdl:operation name="RetornarUsuarioTutorPorId">
+      <wsdl:input message="tns:RetornarUsuarioTutorPorIdHttpPostIn" />
+      <wsdl:output message="tns:RetornarUsuarioTutorPorIdHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceGetTutorByIdSoap" type="tns:WebServiceGetTutorByIdSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RetornarUsuarioTutorPorId">
+      <soap:operation soapAction="http://tempuri.org/RetornarUsuarioTutorPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetornarUsuarioTutorPorIdAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceGetTutorByIdSoap12" type="tns:WebServiceGetTutorByIdSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RetornarUsuarioTutorPorId">
+      <soap12:operation soapAction="http://tempuri.org/RetornarUsuarioTutorPorId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetornarUsuarioTutorPorIdAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceGetTutorByIdHttpGet" type="tns:WebServiceGetTutorByIdHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="RetornarUsuarioTutorPorId">
+      <http:operation location="/RetornarUsuarioTutorPorId" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceGetTutorByIdHttpPost" type="tns:WebServiceGetTutorByIdHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="RetornarUsuarioTutorPorId">
+      <http:operation location="/RetornarUsuarioTutorPorId" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceGetTutorById">
+    <wsdl:port name="WebServiceGetTutorByIdSoap" binding="tns:WebServiceGetTutorByIdSoap">
+      <soap:address location="https://studydeskv1webservices.azurewebsites.net/WebServices/Tutor/WebServiceGetTutorById.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceGetTutorByIdSoap12" binding="tns:WebServiceGetTutorByIdSoap12">
+      <soap12:address location="https://studydeskv1webservices.azurewebsites.net/WebServices/Tutor/WebServiceGetTutorById.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceGetTutorByIdHttpGet" binding="tns:WebServiceGetTutorByIdHttpGet">
+      <http:address location="https://studydeskv1webservices.azurewebsites.net/WebServices/Tutor/WebServiceGetTutorById.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceGetTutorByIdHttpPost" binding="tns:WebServiceGetTutorByIdHttpPost">
+      <http:address location="https://studydeskv1webservices.azurewebsites.net/WebServices/Tutor/WebServiceGetTutorById.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

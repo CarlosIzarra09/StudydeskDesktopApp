@@ -13,32 +13,32 @@
 // 
 #pragma warning disable 1591
 
-namespace StudydeskDesktopApp.GetTutors {
+namespace StudydeskDesktopApp.PutTutor {
     using System.Diagnostics;
     using System;
     using System.Xml.Serialization;
     using System.ComponentModel;
     using System.Web.Services.Protocols;
     using System.Web.Services;
-    using System.Data;
     
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4161.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Web.Services.WebServiceBindingAttribute(Name="WebServiceGetTutorsSoap", Namespace="http://tempuri.org/")]
-    public partial class WebServiceGetTutors : System.Web.Services.Protocols.SoapHttpClientProtocol {
+    [System.Web.Services.WebServiceBindingAttribute(Name="WebServiceUpdateTutorSoap", Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseResponseOfWsSecurity))]
+    public partial class WebServiceUpdateTutor : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private AuthHeader authHeaderValueField;
         
-        private System.Threading.SendOrPostCallback ListaTutoresOperationCompleted;
+        private System.Threading.SendOrPostCallback ActualizarTutorOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
-        public WebServiceGetTutors() {
-            this.Url = global::StudydeskDesktopApp.Properties.Settings.Default.StudydeskDesktopApp_GetTutors_WebServiceGetTutors;
+        public WebServiceUpdateTutor() {
+            this.Url = global::StudydeskDesktopApp.Properties.Settings.Default.StudydeskDesktopApp_PutTutor_WebServiceUpdateTutor;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -82,33 +82,47 @@ namespace StudydeskDesktopApp.GetTutors {
         }
         
         /// <remarks/>
-        public event ListaTutoresCompletedEventHandler ListaTutoresCompleted;
+        public event ActualizarTutorCompletedEventHandler ActualizarTutorCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapHeaderAttribute("AuthHeaderValue")]
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListaTutores", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public System.Data.DataSet ListaTutores() {
-            object[] results = this.Invoke("ListaTutores", new object[0]);
-            return ((System.Data.DataSet)(results[0]));
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ActualizarTutor", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public WsSecurityResponse ActualizarTutor(int id, string name, string lastName, string description, string logo, double priceperhour, int courseId) {
+            object[] results = this.Invoke("ActualizarTutor", new object[] {
+                        id,
+                        name,
+                        lastName,
+                        description,
+                        logo,
+                        priceperhour,
+                        courseId});
+            return ((WsSecurityResponse)(results[0]));
         }
         
         /// <remarks/>
-        public void ListaTutoresAsync() {
-            this.ListaTutoresAsync(null);
+        public void ActualizarTutorAsync(int id, string name, string lastName, string description, string logo, double priceperhour, int courseId) {
+            this.ActualizarTutorAsync(id, name, lastName, description, logo, priceperhour, courseId, null);
         }
         
         /// <remarks/>
-        public void ListaTutoresAsync(object userState) {
-            if ((this.ListaTutoresOperationCompleted == null)) {
-                this.ListaTutoresOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListaTutoresOperationCompleted);
+        public void ActualizarTutorAsync(int id, string name, string lastName, string description, string logo, double priceperhour, int courseId, object userState) {
+            if ((this.ActualizarTutorOperationCompleted == null)) {
+                this.ActualizarTutorOperationCompleted = new System.Threading.SendOrPostCallback(this.OnActualizarTutorOperationCompleted);
             }
-            this.InvokeAsync("ListaTutores", new object[0], this.ListaTutoresOperationCompleted, userState);
+            this.InvokeAsync("ActualizarTutor", new object[] {
+                        id,
+                        name,
+                        lastName,
+                        description,
+                        logo,
+                        priceperhour,
+                        courseId}, this.ActualizarTutorOperationCompleted, userState);
         }
         
-        private void OnListaTutoresOperationCompleted(object arg) {
-            if ((this.ListaTutoresCompleted != null)) {
+        private void OnActualizarTutorOperationCompleted(object arg) {
+            if ((this.ActualizarTutorCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.ListaTutoresCompleted(this, new ListaTutoresCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.ActualizarTutorCompleted(this, new ActualizarTutorCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -179,27 +193,91 @@ namespace StudydeskDesktopApp.GetTutors {
     }
     
     /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4161.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class WsSecurity {
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WsSecurityResponse))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4161.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public abstract partial class BaseResponseOfWsSecurity {
+        
+        private bool successField;
+        
+        private string messageField;
+        
+        private WsSecurity resourceField;
+        
+        /// <remarks/>
+        public bool Success {
+            get {
+                return this.successField;
+            }
+            set {
+                this.successField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public WsSecurity Resource {
+            get {
+                return this.resourceField;
+            }
+            set {
+                this.resourceField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4161.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class WsSecurityResponse : BaseResponseOfWsSecurity {
+    }
+    
+    /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4161.0")]
-    public delegate void ListaTutoresCompletedEventHandler(object sender, ListaTutoresCompletedEventArgs e);
+    public delegate void ActualizarTutorCompletedEventHandler(object sender, ActualizarTutorCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4161.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class ListaTutoresCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class ActualizarTutorCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal ListaTutoresCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal ActualizarTutorCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public System.Data.DataSet Result {
+        public WsSecurityResponse Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((System.Data.DataSet)(this.results[0]));
+                return ((WsSecurityResponse)(this.results[0]));
             }
         }
     }

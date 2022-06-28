@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AutenticarUsuarioTutor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AutenticarUsuarioTutorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AutenticarUsuarioTutorResult" type="tns:AuthenticationResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AuthenticationResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseResponseOfAuthentication" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseResponseOfAuthentication" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Resource" type="tns:Authentication" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Authentication">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AutenticarUsuarioEstudiante">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AutenticarUsuarioEstudianteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AutenticarUsuarioEstudianteResult" type="tns:AuthenticationResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticationResponse" nillable="true" type="tns:AuthenticationResponse" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AutenticarUsuarioTutorSoapIn">
+    <wsdl:part name="parameters" element="tns:AutenticarUsuarioTutor" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarUsuarioTutorSoapOut">
+    <wsdl:part name="parameters" element="tns:AutenticarUsuarioTutorResponse" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarUsuarioEstudianteSoapIn">
+    <wsdl:part name="parameters" element="tns:AutenticarUsuarioEstudiante" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarUsuarioEstudianteSoapOut">
+    <wsdl:part name="parameters" element="tns:AutenticarUsuarioEstudianteResponse" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarUsuarioTutorHttpGetIn">
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarUsuarioTutorHttpGetOut">
+    <wsdl:part name="Body" element="tns:AuthenticationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarUsuarioEstudianteHttpGetIn">
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarUsuarioEstudianteHttpGetOut">
+    <wsdl:part name="Body" element="tns:AuthenticationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarUsuarioTutorHttpPostIn">
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarUsuarioTutorHttpPostOut">
+    <wsdl:part name="Body" element="tns:AuthenticationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarUsuarioEstudianteHttpPostIn">
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarUsuarioEstudianteHttpPostOut">
+    <wsdl:part name="Body" element="tns:AuthenticationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceAuthenticationSoap">
+    <wsdl:operation name="AutenticarUsuarioTutor">
+      <wsdl:input message="tns:AutenticarUsuarioTutorSoapIn" />
+      <wsdl:output message="tns:AutenticarUsuarioTutorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AutenticarUsuarioEstudiante">
+      <wsdl:input message="tns:AutenticarUsuarioEstudianteSoapIn" />
+      <wsdl:output message="tns:AutenticarUsuarioEstudianteSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebServiceAuthenticationHttpGet">
+    <wsdl:operation name="AutenticarUsuarioTutor">
+      <wsdl:input message="tns:AutenticarUsuarioTutorHttpGetIn" />
+      <wsdl:output message="tns:AutenticarUsuarioTutorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AutenticarUsuarioEstudiante">
+      <wsdl:input message="tns:AutenticarUsuarioEstudianteHttpGetIn" />
+      <wsdl:output message="tns:AutenticarUsuarioEstudianteHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebServiceAuthenticationHttpPost">
+    <wsdl:operation name="AutenticarUsuarioTutor">
+      <wsdl:input message="tns:AutenticarUsuarioTutorHttpPostIn" />
+      <wsdl:output message="tns:AutenticarUsuarioTutorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AutenticarUsuarioEstudiante">
+      <wsdl:input message="tns:AutenticarUsuarioEstudianteHttpPostIn" />
+      <wsdl:output message="tns:AutenticarUsuarioEstudianteHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceAuthenticationSoap" type="tns:WebServiceAuthenticationSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AutenticarUsuarioTutor">
+      <soap:operation soapAction="http://tempuri.org/AutenticarUsuarioTutor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutenticarUsuarioEstudiante">
+      <soap:operation soapAction="http://tempuri.org/AutenticarUsuarioEstudiante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceAuthenticationSoap12" type="tns:WebServiceAuthenticationSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AutenticarUsuarioTutor">
+      <soap12:operation soapAction="http://tempuri.org/AutenticarUsuarioTutor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutenticarUsuarioEstudiante">
+      <soap12:operation soapAction="http://tempuri.org/AutenticarUsuarioEstudiante" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceAuthenticationHttpGet" type="tns:WebServiceAuthenticationHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="AutenticarUsuarioTutor">
+      <http:operation location="/AutenticarUsuarioTutor" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutenticarUsuarioEstudiante">
+      <http:operation location="/AutenticarUsuarioEstudiante" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceAuthenticationHttpPost" type="tns:WebServiceAuthenticationHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="AutenticarUsuarioTutor">
+      <http:operation location="/AutenticarUsuarioTutor" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutenticarUsuarioEstudiante">
+      <http:operation location="/AutenticarUsuarioEstudiante" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceAuthentication">
+    <wsdl:port name="WebServiceAuthenticationSoap" binding="tns:WebServiceAuthenticationSoap">
+      <soap:address location="https://studydeskv1webservices.azurewebsites.net/WebServiceAuthentication.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceAuthenticationSoap12" binding="tns:WebServiceAuthenticationSoap12">
+      <soap12:address location="https://studydeskv1webservices.azurewebsites.net/WebServiceAuthentication.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceAuthenticationHttpGet" binding="tns:WebServiceAuthenticationHttpGet">
+      <http:address location="https://studydeskv1webservices.azurewebsites.net/WebServiceAuthentication.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceAuthenticationHttpPost" binding="tns:WebServiceAuthenticationHttpPost">
+      <http:address location="https://studydeskv1webservices.azurewebsites.net/WebServiceAuthentication.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
