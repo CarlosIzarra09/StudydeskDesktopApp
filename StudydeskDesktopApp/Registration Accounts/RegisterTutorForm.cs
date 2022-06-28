@@ -33,8 +33,6 @@ namespace StudydeskDesktopApp
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             
-            
-
             if (openImage.ShowDialog() == DialogResult.OK)
             {
                 logo.ImageLocation = openImage.FileName;
