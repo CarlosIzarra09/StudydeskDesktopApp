@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ListaCarreras">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListaCarrerasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaCarrerasResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ListaCarrerasSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaCarreras" />
+  </wsdl:message>
+  <wsdl:message name="ListaCarrerasSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaCarrerasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaCarrerasAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ListaCarrerasHttpGetIn" />
+  <wsdl:message name="ListaCarrerasHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ListaCarrerasHttpPostIn" />
+  <wsdl:message name="ListaCarrerasHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceGetCareersSoap">
+    <wsdl:operation name="ListaCarreras">
+      <wsdl:input message="tns:ListaCarrerasSoapIn" />
+      <wsdl:output message="tns:ListaCarrerasSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebServiceGetCareersHttpGet">
+    <wsdl:operation name="ListaCarreras">
+      <wsdl:input message="tns:ListaCarrerasHttpGetIn" />
+      <wsdl:output message="tns:ListaCarrerasHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebServiceGetCareersHttpPost">
+    <wsdl:operation name="ListaCarreras">
+      <wsdl:input message="tns:ListaCarrerasHttpPostIn" />
+      <wsdl:output message="tns:ListaCarrerasHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceGetCareersSoap" type="tns:WebServiceGetCareersSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListaCarreras">
+      <soap:operation soapAction="http://tempuri.org/ListaCarreras" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ListaCarrerasAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceGetCareersSoap12" type="tns:WebServiceGetCareersSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListaCarreras">
+      <soap12:operation soapAction="http://tempuri.org/ListaCarreras" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ListaCarrerasAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceGetCareersHttpGet" type="tns:WebServiceGetCareersHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="ListaCarreras">
+      <http:operation location="/ListaCarreras" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceGetCareersHttpPost" type="tns:WebServiceGetCareersHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="ListaCarreras">
+      <http:operation location="/ListaCarreras" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceGetCareers">
+    <wsdl:port name="WebServiceGetCareersSoap" binding="tns:WebServiceGetCareersSoap">
+      <soap:address location="https://studydeskv1webservices.azurewebsites.net/WebServices/Career/WebServiceGetCareers.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceGetCareersSoap12" binding="tns:WebServiceGetCareersSoap12">
+      <soap12:address location="https://studydeskv1webservices.azurewebsites.net/WebServices/Career/WebServiceGetCareers.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceGetCareersHttpGet" binding="tns:WebServiceGetCareersHttpGet">
+      <http:address location="https://studydeskv1webservices.azurewebsites.net/WebServices/Career/WebServiceGetCareers.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceGetCareersHttpPost" binding="tns:WebServiceGetCareersHttpPost">
+      <http:address location="https://studydeskv1webservices.azurewebsites.net/WebServices/Career/WebServiceGetCareers.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

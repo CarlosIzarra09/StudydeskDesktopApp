@@ -14,16 +14,32 @@ namespace StudydeskDesktopApp
     {
         OpenFileDialog openImage = new OpenFileDialog();
         StudydeskDesktopApp.PostStudent.WebServicePostStudent postStudent;
+        StudydeskDesktopApp.GetCareers.WebServiceGetCareers getCareers;
+        StudydeskDesktopApp.GetUniversities.WebServiceGetUniversities getUniversities;
+        DataSet tableCareer;
 
         public RegisterStudent()
         {
             InitializeComponent();
             InitializeWebServices();
+            
         }
 
         public void InitializeWebServices() {
             postStudent = new StudydeskDesktopApp.PostStudent.WebServicePostStudent();
+            getCareers = new StudydeskDesktopApp.GetCareers.WebServiceGetCareers();
+            getUniversities = new StudydeskDesktopApp.GetUniversities.WebServiceGetUniversities();
             postStudent.AuthHeaderValue = new StudydeskDesktopApp.PostStudent.AuthHeader
+            {
+                Username = "studydesk",
+                Password = "x6$XEx$Ln@8oSsDreXo74BfYHj8SAoXkxP779qjQ"
+            };
+            getCareers.AuthHeaderValue = new StudydeskDesktopApp.GetCareers.AuthHeader
+            {
+                Username = "studydesk",
+                Password = "x6$XEx$Ln@8oSsDreXo74BfYHj8SAoXkxP779qjQ"
+            };
+            getUniversities.AuthHeaderValue = new StudydeskDesktopApp.GetUniversities.AuthHeader
             {
                 Username = "studydesk",
                 Password = "x6$XEx$Ln@8oSsDreXo74BfYHj8SAoXkxP779qjQ"
@@ -61,7 +77,7 @@ namespace StudydeskDesktopApp
                         textBox_email.Text, 
                         textBox_contraseña.Text, 
                         0, //IMPORTANT: ISTUTOR ALWAYS WILL BE "0", but if someone have sufficient time for coding "student BECOMES tutor" option.... 
-                        1).Message;//id de carrera, esto se escoge, pero por ahora es 1 por defecto
+                        Int16.Parse(cbCareer.SelectedValue.ToString())).Message;//id de carrera, esto se escoge, pero por ahora es 1 por defecto
                     
                     nextPageConfirmation(response);
                 }
@@ -71,8 +87,8 @@ namespace StudydeskDesktopApp
                         "https://res.cloudinary.com/dwhagi5eg/image/upload/v1636674995/gjipugw9leeg9tae72e4.png", 
                         textBox_email.Text, 
                         textBox_contraseña.Text, 
-                        0, 
-                        1).Message;
+                        0,
+                        Int16.Parse(cbCareer.SelectedValue.ToString())).Message;
 
                     nextPageConfirmation(response);
                 }
@@ -107,7 +123,13 @@ namespace StudydeskDesktopApp
 
         private void RegisterStudent_Load(object sender, EventArgs e)
         {
+            DataSet tableUni = getUniversities.ListaUniversidades();
+            cbUniversity.DataSource = tableUni.Tables[0];
+            cbUniversity.ValueMember = "id";
+            cbUniversity.DisplayMember = "name";
 
+            tableCareer = getCareers.ListaCarreras();
+            
         }
 
         private void logo_Click(object sender, EventArgs e)
@@ -129,6 +151,17 @@ namespace StudydeskDesktopApp
         {
             this.Hide();
             LoginForm.Instance.Show();
+        }
+
+        private void cbUniversity_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (tableCareer != null) {
+                string filter = string.Format("university_id = {0}", cbUniversity.SelectedValue.ToString());
+
+                cbCareer.DataSource = tableCareer.Tables[0].Select(filter).CopyToDataTable();
+                cbCareer.ValueMember = "id";
+                cbCareer.DisplayMember = "name";
+            }
         }
     }
 }

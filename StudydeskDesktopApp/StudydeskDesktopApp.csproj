@@ -130,6 +130,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\GetCareers\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\GetCourses\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\GetStudentById\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -141,6 +151,11 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\GetTutors\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\GetUniversities\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -218,6 +233,16 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\Authentication\WebServiceAuthentication.wsdl" />
+    <None Include="Web References\GetCareers\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\GetCareers\WebServiceGetCareers.wsdl" />
+    <None Include="Web References\GetCourses\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\GetCourses\WebServiceGetCourses.wsdl" />
     <None Include="Web References\GetStudentById\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -239,6 +264,11 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\GetTutors\WebServiceGetTutors.wsdl" />
+    <None Include="Web References\GetUniversities\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\GetUniversities\WebServiceGetUniversities.wsdl" />
     <None Include="Web References\PostStudent\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -302,6 +332,28 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>StudydeskDesktopApp_Authentication_WebServiceAuthentication</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="https://studydeskv1webservices.azurewebsites.net/WebServices/Career/WebServiceGetCareers.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\GetCareers\</RelPath>
+      <UpdateFromURL>https://studydeskv1webservices.azurewebsites.net/WebServices/Career/WebServiceGetCareers.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>StudydeskDesktopApp_GetCareers_WebServiceGetCareers</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://studydeskv1webservices.azurewebsites.net/WebServices/Course/WebServiceGetCourses.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\GetCourses\</RelPath>
+      <UpdateFromURL>https://studydeskv1webservices.azurewebsites.net/WebServices/Course/WebServiceGetCourses.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>StudydeskDesktopApp_GetCourses_WebServiceGetCourses</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="https://studydeskv1webservices.azurewebsites.net/WebServices/Student/WebServiceGetStudentById.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\GetStudentById\</RelPath>
@@ -357,6 +409,17 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>StudydeskDesktopApp_PostTutor_WebServicePostTutor</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="https://studydeskv1webservices.azurewebsites.net/WebServices/University/WebServiceGetUniversities.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\GetUniversities\</RelPath>
+      <UpdateFromURL>https://studydeskv1webservices.azurewebsites.net/WebServices/University/WebServiceGetUniversities.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>StudydeskDesktopApp_GetUniversities_WebServiceGetUniversities</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\monitor.png" />
@@ -404,6 +467,9 @@
     <None Include="Resources\studydesk_title_logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Web References\GetCourses\WebServiceGetCourses.disco" />
+    <None Include="Web References\GetUniversities\WebServiceGetUniversities.disco" />
+    <None Include="Web References\GetCareers\WebServiceGetCareers.disco" />
     <None Include="Web References\PutTutor\WebServiceUpdateTutor.disco" />
     <None Include="Web References\GetTutors\WebServiceGetTutors.disco" />
     <None Include="Web References\GetTutorById\WebServiceGetTutorById.disco" />

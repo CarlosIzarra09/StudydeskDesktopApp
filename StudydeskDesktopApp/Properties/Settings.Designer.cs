@@ -12,7 +12,7 @@ namespace StudydeskDesktopApp.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.1.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -95,6 +95,39 @@ namespace StudydeskDesktopApp.Properties {
         public string StudydeskDesktopApp_PutTutor_WebServiceUpdateTutor {
             get {
                 return ((string)(this["StudydeskDesktopApp_PutTutor_WebServiceUpdateTutor"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://studydeskv1webservices.azurewebsites.net/WebServices/Career/WebServiceGet" +
+            "Careers.asmx")]
+        public string StudydeskDesktopApp_GetCareers_WebServiceGetCareers {
+            get {
+                return ((string)(this["StudydeskDesktopApp_GetCareers_WebServiceGetCareers"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://studydeskv1webservices.azurewebsites.net/WebServices/University/WebServic" +
+            "eGetUniversities.asmx")]
+        public string StudydeskDesktopApp_GetUniversities_WebServiceGetUniversities {
+            get {
+                return ((string)(this["StudydeskDesktopApp_GetUniversities_WebServiceGetUniversities"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://studydeskv1webservices.azurewebsites.net/WebServices/Course/WebServiceGet" +
+            "Courses.asmx")]
+        public string StudydeskDesktopApp_GetCourses_WebServiceGetCourses {
+            get {
+                return ((string)(this["StudydeskDesktopApp_GetCourses_WebServiceGetCourses"]));
             }
         }
     }

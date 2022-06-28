@@ -108,7 +108,7 @@ namespace StudydeskDesktopApp
 
             response = tutorById.RetornarUsuarioTutorPorId(this.userId);
 
-            updateTutorById.ActualizarTutor(
+            /*updateTutorById.ActualizarTutor(
                response.Resource.Id,
                textBox_name.Text,
                textBox_lastname.Text,
@@ -118,7 +118,7 @@ namespace StudydeskDesktopApp
                "123",
                response.Resource.PricePerHour,
                response.Resource.CourseId
-               );
+               );*/
         }
     }
 }

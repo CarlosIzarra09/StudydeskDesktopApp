@@ -23,5 +23,14 @@
     <Setting Name="StudydeskDesktopApp_PutTutor_WebServiceUpdateTutor" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">https://localhost:44304/WebServices/Tutor/WebServiceUpdateTutor.asmx</Value>
     </Setting>
+    <Setting Name="StudydeskDesktopApp_GetCareers_WebServiceGetCareers" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://studydeskv1webservices.azurewebsites.net/WebServices/Career/WebServiceGetCareers.asmx</Value>
+    </Setting>
+    <Setting Name="StudydeskDesktopApp_GetUniversities_WebServiceGetUniversities" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://studydeskv1webservices.azurewebsites.net/WebServices/University/WebServiceGetUniversities.asmx</Value>
+    </Setting>
+    <Setting Name="StudydeskDesktopApp_GetCourses_WebServiceGetCourses" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://studydeskv1webservices.azurewebsites.net/WebServices/Course/WebServiceGetCourses.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
